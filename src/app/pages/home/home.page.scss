@@ -1,0 +1,48 @@
+ion-card {
+  margin: 0;
+  border-radius: 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: none;
+  aspect-ratio: 1 / 1;
+}
+
+@supports not (aspect-ratio: 1 / 1) {
+  ion-card::before {
+    float: left;
+    padding-top: 100%;
+    content: "";
+  }
+
+  ion-card::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+ion-grid {
+  padding: 0;
+
+  ion-col {
+    padding: 0;
+  }
+}
+
+ion-list.list-inset {
+  margin-top: 8px;
+}
+
+.built-with-list {
+  margin: 0;
+  border-radius: 12px;
+
+  ion-item ion-label {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  ion-item {
+    --border-color: var(--ion-color-step-200);
+  }
+}

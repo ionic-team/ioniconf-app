@@ -1,0 +1,25 @@
+$card-margin: 16px;
+
+ion-card {
+  border-radius: 12px;
+  margin: 0 0 #{$card-margin} 0;
+  box-shadow: none;
+}
+
+ion-card-header {
+  padding-bottom: 2px;
+}
+
+ion-card-header ion-card-title {
+  margin: 6px 0;
+  font-size: 18px;
+}
+
+ion-card-title,
+ion-card-content {
+  color: white;
+}
+
+ion-card-content {
+  font-size: 14px;
+}

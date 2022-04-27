@@ -1,0 +1,37 @@
+<ion-content class="page-content">
+  <ion-card
+    [class]="welcome"
+    [style.backgroundImage]="'url(./assets/ionic-blue-bkg-logo.jpeg)'"
+  >
+  </ion-card>
+
+  <div class="ion-padding">
+    <h2 class="eas-header-large">Explore</h2>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let item of exploreCards" sizeMd="6" size="12">
+          <app-explore-card
+            [title]="item.title"
+            [description]="item.description"
+            [color]="item.color"
+            [route]="item.route"
+          ></app-explore-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <br />
+
+    <h2 class="eas-header-large">This app was built with</h2>
+    <ion-list [inset]="true" class="built-with-list">
+      <ion-item
+        *ngFor="let item of builtWith"
+        [detail]="true"
+        lines="none"
+        (click)="openLink(item.href)"
+      >
+        <ion-label> {{ item.title }} </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

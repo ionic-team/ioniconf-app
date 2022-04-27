@@ -1,0 +1,139 @@
+<ion-header [translucent]="true" collapse="fade">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>Enter to win</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="submit()">Submit</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="page-content">
+  <!-- <form (ngSubmit)="onSubmit()" #hubspotForm="ngForm"> -->
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <ion-list-header>Contact Info</ion-list-header>
+    <ion-list [inset]="true">
+      <ion-item>
+        <ion-label>First Name</ion-label>
+        <ion-input placeholder="John" formControlName="firstname"></ion-input>
+        <!-- <ion-text slot="error" *ngIf="f.firstname.errors?.required">
+          First name is required
+        </ion-text> -->
+      </ion-item>
+      <ion-item>
+        <ion-label>Last Name</ion-label>
+        <ion-input placeholder="Doe" formControlName="lastname"></ion-input>
+        <!-- <ion-text slot="error" *ngIf="f.lastname.errors?.required">
+          Last name is required
+        </ion-text> -->
+      </ion-item>
+      <ion-item>
+        <ion-label>Work Email</ion-label>
+        <ion-input
+          type="email"
+          placeholder="jdoe@ionic.io"
+          formControlName="email"
+        ></ion-input>
+        <!-- <ion-text
+          class="ion-padding-bottom"
+          slot="error"
+          *ngIf="f.email.errors?.required"
+        >
+          Email is required
+        </ion-text> -->
+      </ion-item>
+    </ion-list>
+    <ion-list-header>Mailing Address</ion-list-header>
+    <ion-list [inset]="true">
+      <ion-item>
+        <ion-label>Street</ion-label>
+        <ion-input
+          placeholder="123 Any Street"
+          formControlName="address"
+        ></ion-input>
+        <!-- <ion-text slot="error" *ngIf="f.street.errors?.required">
+          Street is required
+        </ion-text> -->
+      </ion-item>
+      <ion-item>
+        <ion-label>City</ion-label>
+        <ion-input placeholder="Boston" formControlName="city"></ion-input>
+        <!-- <ion-text slot="error" *ngIf="f.city.errors?.required">
+          City is required
+        </ion-text> -->
+      </ion-item>
+      <ion-item>
+        <ion-label>Zip</ion-label>
+        <ion-input placeholder="02215" formControlName="zip"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Country</ion-label>
+        <ion-select formControlName="country" interface="popover">
+          <ion-select-option
+            *ngFor="let c of hubspotService.countries"
+            [value]="c"
+          >
+            {{ c }}
+          </ion-select-option>
+        </ion-select>
+        <!-- <ion-text
+          class="ion-padding-bottom"
+          slot="error"
+          *ngIf="f.country.errors?.required"
+        >
+          Country is required
+        </ion-text> -->
+      </ion-item>
+      <ion-item [hidden]="f.country.value !== 'United States'">
+        <!-- <ion-item> -->
+        <ion-label>State</ion-label>
+        <ion-select formControlName="state" interface="popover">
+          <ion-select-option
+            *ngFor="let st of hubspotService.states"
+            [value]="st"
+          >
+            {{ st }}
+          </ion-select-option>
+        </ion-select>
+        <!-- <ion-text
+          class="ion-padding-bottom"
+          slot="error"
+          *ngIf="f.state.errors?.required"
+        >
+          State is required
+        </ion-text> -->
+      </ion-item>
+    </ion-list>
+    <ion-list-header>Preferences</ion-list-header>
+    <ion-list [inset]="true">
+      <ion-item>
+        <ion-label>T-shirt Size</ion-label>
+        <ion-select formControlName="tshirt" interface="popover">
+          <ion-select-option
+            *ngFor="let size of hubspotService.tshirtSizes"
+            [value]="size"
+          >
+            {{ size }}
+          </ion-select-option>
+        </ion-select>
+        <!-- <ion-text
+          class="ion-padding-bottom"
+          slot="error"
+          *ngIf="!tshirt.valid && (!tshirt.pristine || hubspotForm.submitted)"
+        >
+          T-shirt Size is required
+        </ion-text> -->
+        <!-- <ion-text
+          class="ion-padding-bottom"
+          slot="error"
+          *ngIf="f.tshirt.errors?.required"
+        >
+          T-shirt Size is required
+        </ion-text> -->
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Swag</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="page-content">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Swag</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list-header
+    class="ion-padding-top ion-padding-start ion-padding-end eas-header-large"
+    >Enter the Ionic swag raffle</ion-list-header
+  >
+
+  <ion-card>
+    <ion-card-header>
+      <img src="assets/raffle.png" />
+
+      <ion-card-title><strong>Ioniconf Swag</strong></ion-card-title>
+      <ion-card-subtitle>
+        Conference attendees, enter your info for a chance to win free Ionic and
+        ioniconf 2022 swag!
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-button expand="block" (click)="openSwagModal()">
+        Enter to Win
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

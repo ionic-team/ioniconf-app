@@ -1,0 +1,20 @@
+<ion-card
+  *ngIf="session$ | async as session"
+  [routerLink]="session.id.toString()"
+>
+  <ion-card-header>
+    <app-session-avatars size="48px" [urls]="photoUrls"></app-session-avatars>
+    <ion-card-title class="eas-header-small">{{
+      session.title
+    }}</ion-card-title>
+    <ion-card-subtitle>
+      <div *ngFor="let speaker of session.speakers">
+        {{ speaker.fullName }}, {{ speaker.role }},
+        {{ speaker.company.name }}
+      </div>
+    </ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    {{ session.startTime | talkTime: session.endTime }}
+  </ion-card-content>
+</ion-card>

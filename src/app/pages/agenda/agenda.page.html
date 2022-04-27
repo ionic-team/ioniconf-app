@@ -1,0 +1,25 @@
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Agenda </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="page-content">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Agenda</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ion-padding">
+    <ng-container *ngIf="agendaFacade.sessionsLoaded$ | async; else loading">
+      <app-session-card
+        *ngFor="let item of agendaFacade.sessions$ | async; trackBy: trackItems"
+        [id]="item.id"
+      ></app-session-card>
+    </ng-container>
+    <ng-template #loading>
+      <ion-spinner></ion-spinner>
+    </ng-template>
+  </div>
+</ion-content>
