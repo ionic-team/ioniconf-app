@@ -1,35 +1,56 @@
 <ion-content class="page-content">
-  <ion-card
-    [style.backgroundImage]="'url(./assets/home-header.png)'"
-  ></ion-card>
+  <div class="welcome-banner">
+    <picture>
+      <source
+        srcset="./assets/ioniconf-banner.png"
+        media="(min-width: 577px)"
+      />
+      <img class="welcome-img" src="./assets/home-header.png" />
+    </picture>
+  </div>
 
   <div class="ion-padding">
-    <h2 class="eas-header-large">Explore</h2>
     <ion-grid>
       <ion-row>
-        <ion-col *ngFor="let item of exploreCards" sizeMd="6" size="12">
-          <app-explore-card
-            [title]="item.title"
-            [description]="item.description"
-            [color]="item.color"
-            [route]="item.route"
-          ></app-explore-card>
+        <ion-col size="12" sizeMd="8">
+          <ion-row>
+            <ion-col>
+              <h2 class="eas-header-large">Explore</h2>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-align-items-center">
+            <ion-col *ngFor="let item of exploreCards" size="12" sizeLg="6">
+              <app-explore-card
+                [title]="item.title"
+                [description]="item.description"
+                [color]="item.color"
+                [route]="item.route"
+              ></app-explore-card>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col size="12" sizeMd="4">
+          <ion-row>
+            <ion-col>
+              <h2 class="eas-header-large">This app was built with</h2>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-list [inset]="true" class="built-with-list">
+                <ion-item
+                  *ngFor="let item of builtWith"
+                  [detail]="true"
+                  lines="none"
+                  (click)="openLink(item.href)"
+                >
+                  <ion-label> {{ item.title }} </ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
         </ion-col>
       </ion-row>
     </ion-grid>
-
-    <br />
-
-    <h2 class="eas-header-large">This app was built with</h2>
-    <ion-list [inset]="true" class="built-with-list">
-      <ion-item
-        *ngFor="let item of builtWith"
-        [detail]="true"
-        lines="none"
-        (click)="openLink(item.href)"
-      >
-        <ion-label> {{ item.title }} </ion-label>
-      </ion-item>
-    </ion-list>
   </div>
 </ion-content>
