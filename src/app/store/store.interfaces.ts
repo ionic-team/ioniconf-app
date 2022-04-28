@@ -57,6 +57,9 @@ export class HubspotFormData {
   firstname: string;
   lastname: string;
   email: string;
+  job_function: string;
+  topic_of_interest: string[];
+  enter_to_win: 'Yes' | 'No';
   address: string;
   city: string;
   zip: string;

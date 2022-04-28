@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -28,6 +29,8 @@ export class SwagFormComponent implements OnInit {
       firstname: new FormControl('', Validators.compose([Validators.required])),
       lastname: new FormControl('', Validators.compose([Validators.required])),
       email: new FormControl('', Validators.compose([Validators.required])),
+      job: new FormControl('', Validators.compose([Validators.required])),
+      topics: new FormControl([], Validators.compose([Validators.required])),
       address: new FormControl('', Validators.compose([Validators.required])),
       city: new FormControl('', Validators.compose([Validators.required])),
       state: new FormControl(''),
@@ -63,6 +66,9 @@ export class SwagFormComponent implements OnInit {
       firstname: this.f.firstname.value,
       lastname: this.f.lastname.value,
       email: this.f.email.value,
+      job_function: this.f.job.value,
+      topic_of_interest: this.f.topics.value.join(';'),
+      enter_to_win: 'Yes',
       address: this.f.address.value,
       city: this.f.city.value,
       state: this.f.state.value,
@@ -71,11 +77,12 @@ export class SwagFormComponent implements OnInit {
       t_shirt_size: this.f.tshirt.value,
     };
     /* eslint-enable */
-    const success = await this.hubspotService.submitToHubspot(hsdata);
-
-    if (success) {
-      await this.modalController.dismiss(success);
-    }
+    this.hubspotService.submitToHubspot(hsdata).subscribe((res: any) => {
+      console.log(res);
+      if (res.ok) {
+        this.modalController.dismiss(res);
+      }
+    });
   }
 
   async dismiss() {
@@ -83,6 +90,8 @@ export class SwagFormComponent implements OnInit {
   }
 
   private setupForm() {
+    this.form.valueChanges.subscribe((vals) => console.log(vals));
+
     this.f.country.valueChanges.subscribe((val) => {
       console.log(val);
       if (val === 'United States') {

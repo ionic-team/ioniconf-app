@@ -20,3 +20,9 @@ ion-item {
   --padding-start: 16px !important;
   --border-color: var(--ion-color-step-200);
 }
+
+ion-select-option {
+  ion-label {
+    white-space: normal !important;
+  }
+}

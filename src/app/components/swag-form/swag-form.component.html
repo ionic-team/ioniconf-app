@@ -12,7 +12,6 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="page-content">
-  <!-- <form (ngSubmit)="onSubmit()" #hubspotForm="ngForm"> -->
   <form [formGroup]="form" (ngSubmit)="submit()">
     <ion-list-header>Contact Info</ion-list-header>
     <ion-list [inset]="true">
@@ -45,7 +44,59 @@
           Email is required
         </ion-text> -->
       </ion-item>
+      <ion-item>
+        <ion-label>Job Function</ion-label>
+        <ion-select formControlName="job" interface="popover">
+          <ion-select-option
+            *ngFor="let job of hubspotService.jobFunctions"
+            [value]="job"
+          >
+            {{ job }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
     </ion-list>
+
+    <ion-list-header>Preferences</ion-list-header>
+    <ion-list [inset]="true">
+      <ion-item>
+        <ion-label>T-shirt Size</ion-label>
+        <ion-select formControlName="tshirt" interface="popover">
+          <ion-select-option
+            *ngFor="let size of hubspotService.tshirtSizes"
+            [value]="size"
+          >
+            {{ size }}
+          </ion-select-option>
+        </ion-select>
+        <!-- <ion-text
+          class="ion-padding-bottom"
+          slot="error"
+          *ngIf="!tshirt.valid && (!tshirt.pristine || hubspotForm.submitted)"
+        >
+          T-shirt Size is required
+        </ion-text> -->
+        <!-- <ion-text
+          class="ion-padding-bottom"
+          slot="error"
+          *ngIf="f.tshirt.errors?.required"
+        >
+          T-shirt Size is required
+        </ion-text> -->
+      </ion-item>
+      <ion-item>
+        <ion-label>Topic(s) of Interest</ion-label>
+        <ion-select formControlName="topics" multiple="true">
+          <ion-select-option
+            *ngFor="let topic of hubspotService.topicsOfInterest"
+            [value]="topic.value"
+          >
+            {{ topic.name }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
     <ion-list-header>Mailing Address</ion-list-header>
     <ion-list [inset]="true">
       <ion-item>
@@ -104,34 +155,6 @@
           *ngIf="f.state.errors?.required"
         >
           State is required
-        </ion-text> -->
-      </ion-item>
-    </ion-list>
-    <ion-list-header>Preferences</ion-list-header>
-    <ion-list [inset]="true">
-      <ion-item>
-        <ion-label>T-shirt Size</ion-label>
-        <ion-select formControlName="tshirt" interface="popover">
-          <ion-select-option
-            *ngFor="let size of hubspotService.tshirtSizes"
-            [value]="size"
-          >
-            {{ size }}
-          </ion-select-option>
-        </ion-select>
-        <!-- <ion-text
-          class="ion-padding-bottom"
-          slot="error"
-          *ngIf="!tshirt.valid && (!tshirt.pristine || hubspotForm.submitted)"
-        >
-          T-shirt Size is required
-        </ion-text> -->
-        <!-- <ion-text
-          class="ion-padding-bottom"
-          slot="error"
-          *ngIf="f.tshirt.errors?.required"
-        >
-          T-shirt Size is required
         </ion-text> -->
       </ion-item>
     </ion-list>

@@ -9,6 +9,7 @@ export const environment = {
     ref: 'PRISMIC_REF',
   },
   hubspot: {
+    apiKey: 'HUBSPOT_API_KEY',
     portalID: 'HUBSPOT_PORTAL_ID',
     formID: 'HUBSPOT_FORM_ID',
   },
