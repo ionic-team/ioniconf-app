@@ -15,50 +15,58 @@
     <ng-container *ngIf="sponsorsFacade.sponsorsLoaded$ | async; else loading">
       <ng-container *ngIf="platinumSponsors.length">
         <ion-list-header class="eas-header-large">Platinum</ion-list-header>
-        <div class="ion-padding grid">
-          <app-sponsor-card
-            *ngFor="let sponsor of platinumSponsors"
-            [id]="sponsor.id"
-            [button]="true"
-          >
-          </app-sponsor-card>
-        </div>
+        <ion-grid>
+          <ion-row>
+            <ion-col *ngFor="let sponsor of platinumSponsors" size="12">
+              <app-sponsor-card [id]="sponsor.id" [button]="true">
+              </app-sponsor-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ng-container>
 
       <ng-container *ngIf="goldSponsors.length">
         <ion-list-header class="eas-header-large">Gold</ion-list-header>
-        <div class="ion-padding grid">
-          <app-sponsor-card
-            *ngFor="let sponsor of goldSponsors"
-            [id]="sponsor.id"
-            [button]="true"
-          >
-          </app-sponsor-card>
-        </div>
+        <ion-grid>
+          <ion-row>
+            <ion-col *ngFor="let sponsor of goldSponsors" size="12" sizeSm="6">
+              <app-sponsor-card [id]="sponsor.id" [button]="true">
+              </app-sponsor-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ng-container>
 
       <ng-container *ngIf="silverSponsors.length">
         <ion-list-header class="eas-header-large">Silver</ion-list-header>
-        <div class="ion-padding grid">
-          <app-sponsor-card
-            *ngFor="let sponsor of silverSponsors"
-            [id]="sponsor.id"
-            [button]="true"
-          >
-          </app-sponsor-card>
-        </div>
+        <ion-grid>
+          <ion-row>
+            <ion-col
+              *ngFor="let sponsor of silverSponsors"
+              size="12"
+              sizeSm="4"
+            >
+              <app-sponsor-card [id]="sponsor.id" [button]="true">
+              </app-sponsor-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ng-container>
 
       <ng-container *ngIf="bronzeSponsors.length">
         <ion-list-header class="eas-header-large">Bronze</ion-list-header>
-        <div class="ion-padding grid">
-          <app-sponsor-card
-            *ngFor="let sponsor of bronzeSponsors"
-            [id]="sponsor.id"
-            [button]="true"
-          >
-          </app-sponsor-card>
-        </div>
+        <ion-grid>
+          <ion-row>
+            <ion-col
+              *ngFor="let sponsor of bronzeSponsors"
+              size="12"
+              sizeSm="3"
+            >
+              <app-sponsor-card [id]="sponsor.id" [button]="true">
+              </app-sponsor-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ng-container>
     </ng-container>
     <ng-template #loading>
