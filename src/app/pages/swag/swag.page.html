@@ -4,34 +4,40 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="page-content">
+<ion-content class="page-content">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Swag</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <!-- <ion-list-header
-    class="ion-padding-top ion-padding-start ion-padding-end eas-header-large"
-  >
+  <ion-list-header class="ion-padding eas-header-large">
     Enter the Ionic swag raffle
-  </ion-list-header> -->
+  </ion-list-header>
 
   <ion-card>
-    <ion-card-header>
-      <img src="assets/raffle.png" />
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" sizeSm="6" sizeLg="5" class="ion-padding">
+        <img src="assets/sticker.png" />
+      </ion-col>
+      <ion-col size="12" sizeSm="6" sizeLg="7" class="welcome">
+        <ion-card-header>
+          <ion-card-title><strong>Ioniconf Swag</strong></ion-card-title>
+        </ion-card-header>
 
-      <ion-card-title><strong>Ioniconf Swag</strong></ion-card-title>
-      <ion-card-subtitle>
-        Conference attendees, enter your info to request an ioniconf sticker
-        pack and to enter the raffle to win additional ionic swag!
-      </ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-      <ion-button expand="block" (click)="openSwagModal()">
-        Enter to Win
-      </ion-button>
-    </ion-card-content>
+        <ion-card-content>
+          Conference attendees, enter your info to request an ioniconf sticker
+          pack and to enter the raffle to win additional ionic swag!
+          <br />
+        </ion-card-content>
+        <ion-button
+          class="ion-margin-horizontal ion-margin-bottom"
+          expand="block"
+          (click)="openSwagModal()"
+        >
+          Enter to Win
+        </ion-button>
+      </ion-col>
+    </ion-row>
   </ion-card>
 </ion-content>
