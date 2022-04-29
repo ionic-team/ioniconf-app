@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "577943320423",
+    "project_id": "ioniconf-app",
+    "storage_bucket": "ioniconf-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577943320423:android:19572f01cf5414ffaa61c2",
+        "android_client_info": {
+          "package_name": "io.ionic.ioniconf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577943320423-ds57tb8680ac8l9oas4qtgopqrudnph1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVeJkPfmu6LGsFpOX8ujklht6pK8iqGME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "577943320423-ds57tb8680ac8l9oas4qtgopqrudnph1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "577943320423-sk340gmrkthlh3dd5ca1uf1bfhjmq9ph.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "io.ionic.ioniconf"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
