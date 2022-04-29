@@ -193,11 +193,10 @@
   <ion-footer class="ion-padding">
     <ion-text color="medium">
       I understand that by submitting this form, I agree to Ionic's
-      <ion-router-link class="underline" (click)="openPrivacyPolicy()">
-        privacy policy </ion-router-link
-      >. This includes receiving marketing communications from Ionic and the
-      event sponsors. I understand that I can unsubscribe from receiving these
-      marketing communications at any time.
+      <a (click)="openPrivacyPolicy($event)">privacy policy</a>. This includes
+      receiving marketing communications from Ionic and the event sponsors. I
+      understand that I can unsubscribe from receiving these marketing
+      communications at any time.
     </ion-text>
   </ion-footer>
 </ion-content>

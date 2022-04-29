@@ -27,6 +27,7 @@ npm-debug.log*
 /coverage
 /dist
 /node_modules
+/resources
 /platforms
 /plugins
 /www

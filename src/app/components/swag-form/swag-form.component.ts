@@ -21,6 +21,9 @@ export class SwagFormComponent implements OnInit {
   public submitted = false;
   public processing = false;
 
+  // eslint-disable-next-line max-len
+  public privacyPolicyHtml = `I understand that by submitting this form, I agree to Ionic's <a href="" onclick="openPrivacyPolicy(); event.stopPropagation();">privacy policy</a>. This includes receiving marketing communications from Ionic and the event sponsors. I understand that I can unsubscribe from receiving these marketing communications at any time.`;
+
   constructor(
     public hubspotService: HubspotService,
     private formBuilder: FormBuilder,
@@ -89,7 +92,8 @@ export class SwagFormComponent implements OnInit {
     await this.modalController.dismiss();
   }
 
-  public async openPrivacyPolicy() {
+  public async openPrivacyPolicy(evt: any) {
+    evt.stopPropagation();
     await Browser.open({ url: CoreConstants.privacyPolicyUrl });
   }
 
