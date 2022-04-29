@@ -50,7 +50,7 @@ export class HomePage implements OnInit {
     },
     {
       title: 'Ionic Appflow',
-      href: 'https://ionic.io/docs/appflow',
+      href: 'https://ionic.io/appflow',
     },
   ];
 
