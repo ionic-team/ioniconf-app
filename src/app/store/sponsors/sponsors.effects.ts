@@ -17,12 +17,11 @@ export class SponsorsEffects {
       ofType(sponsorsActions.loadSponsors),
       switchMap((action) =>
         this.eventFacade.event$.pipe(
-          map((event) => {
-            console.log(event);
-            return sponsorsActions.loadSponsorsSuccess({
+          map((event) =>
+            sponsorsActions.loadSponsorsSuccess({
               sponsors: event.sponsors,
-            });
-          })
+            })
+          )
           // catchError((e: ApiError) =>
           //   of(
           //     sponsorsActions.loadSponsorsError({

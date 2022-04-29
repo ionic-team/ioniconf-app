@@ -16,7 +16,6 @@ export class SpeakersPage implements OnInit {
 
   ngOnInit() {
     this.eventFacade.eventLoaded$.subscribe((loaded) => {
-      console.log(loaded);
       if (loaded) {
         this.speakersFacade.loadSpeakersData();
       }

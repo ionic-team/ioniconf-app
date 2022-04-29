@@ -18,7 +18,6 @@ export class SpeakersEffects {
       switchMap((action) =>
         this.eventFacade.event$.pipe(
           map((event) =>
-            // console.log(event);
             speakersActions.loadSpeakersSuccess({
               speakers: event.speakers,
             })

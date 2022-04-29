@@ -1,4 +1,3 @@
-import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -6,9 +5,11 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Browser } from '@capacitor/browser';
 import { ModalController } from '@ionic/angular';
 import { HubspotService } from 'src/app/services/hubspot.service';
 import { HubspotFormData } from 'src/app/store/store.interfaces';
+import { CoreConstants } from 'src/app/util/core.constants';
 
 @Component({
   selector: 'app-swag-form',
@@ -33,7 +34,7 @@ export class SwagFormComponent implements OnInit {
       topics: new FormControl([], Validators.compose([Validators.required])),
       address: new FormControl('', Validators.compose([Validators.required])),
       city: new FormControl('', Validators.compose([Validators.required])),
-      state: new FormControl(''),
+      state: new FormControl('', Validators.compose([Validators.required])),
       zip: new FormControl('', Validators.compose([Validators.required])),
       country: new FormControl(
         'United States',
@@ -78,8 +79,7 @@ export class SwagFormComponent implements OnInit {
     };
     /* eslint-enable */
     this.hubspotService.submitToHubspot(hsdata).subscribe((res: any) => {
-      console.log(res);
-      if (res.ok) {
+      if (res) {
         this.modalController.dismiss(res);
       }
     });
@@ -89,11 +89,12 @@ export class SwagFormComponent implements OnInit {
     await this.modalController.dismiss();
   }
 
-  private setupForm() {
-    this.form.valueChanges.subscribe((vals) => console.log(vals));
+  public async openPrivacyPolicy() {
+    await Browser.open({ url: CoreConstants.privacyPolicyUrl });
+  }
 
+  private setupForm() {
     this.f.country.valueChanges.subscribe((val) => {
-      console.log(val);
       if (val === 'United States') {
         this.f.state.setValidators([Validators.required]);
       } else {
@@ -101,11 +102,5 @@ export class SwagFormComponent implements OnInit {
       }
       this.f.state.updateValueAndValidity();
     });
-
-    console.log('Form:', this.form);
-    console.log('Form Value:', this.form.value);
-    console.log('Form Valid:', this.form.valid);
-    console.log('Form Errors:', this.form.errors);
-    console.log('Processing:', this.processing);
   }
 }

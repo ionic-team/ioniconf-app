@@ -49,7 +49,6 @@ export function mapPrismicIonicEventItem(
     companies,
   };
 
-  console.log(event);
   return event;
 }
 

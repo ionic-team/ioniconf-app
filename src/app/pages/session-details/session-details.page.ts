@@ -26,15 +26,12 @@ export class SessionDetailsPage implements OnInit {
     private toastController: ToastController
   ) {
     const sessionId = Number(this.route.snapshot.paramMap.get('sessionId'));
-    // console.log(sessionId);
     this.session$ = this.agendaFacade.getSession(sessionId);
   }
 
   ngOnInit(): void {
     this.session$.subscribe((session) => {
-      console.log(session);
       this.photoUrls = session.speakers.map((speaker) => speaker.photoUrl);
-      console.log(this.photoUrls);
     });
   }
 

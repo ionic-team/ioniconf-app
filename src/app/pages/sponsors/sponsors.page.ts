@@ -21,14 +21,12 @@ export class SponsorsPage implements OnInit {
 
   ngOnInit() {
     this.eventFacade.eventLoaded$.subscribe((loaded) => {
-      console.log(loaded);
       if (loaded) {
         this.sponsorsFacade.loadSponsorsData();
       }
     });
 
     this.sponsorsFacade.sponsors$.subscribe((sponsors) => {
-      console.log(sponsors);
       sponsors.forEach((sponsor) => {
         switch (sponsor.tier) {
           case SponsorTier.PLATINUM:

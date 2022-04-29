@@ -17,10 +17,7 @@ export class IonicEventEffects {
       ofType(eventActions.loadEvent),
       switchMap(() =>
         this.prismicService.loadData().pipe(
-          map((event) =>
-            // console.log(event);
-            eventActions.loadEventSuccess({ event })
-          )
+          map((event) => eventActions.loadEventSuccess({ event }))
           // catchError((e: ApiError) =>
           //   of(
           //     eventActions.loadEventError({

@@ -342,14 +342,6 @@ const topicsOfInterest = [
     name: 'New Web APIs',
     value: 'New Web APIs',
   },
-  {
-    name: 'Capacitor',
-    value: 'Capacitor',
-  },
-  {
-    name: 'Capacitor',
-    value: 'Capacitor',
-  },
 ];
 
 const tshirtSizes = ['Small', 'Medium', 'Large', 'X-Large', '2X-Large'];
@@ -382,29 +374,7 @@ export class HubspotService {
 
   public submitToHubspot(data: HubspotFormData) {
     const hubspotData = this.buildHubspotRequest(data);
-    console.log(hubspotData);
-    console.log(JSON.stringify(hubspotData));
-    // const response = await fetch(submitUrl, {
-    //   method: 'POST',
-    //   /* eslint-disable */
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Accept: 'application/json',
-    //   },
-    //   /* eslint-enable */
-    //   body: JSON.stringify(hubspotData),
-    // });
-    // console.log(response);
-    // return response.ok;
-
     const body = JSON.stringify(hubspotData);
-    // const params = new HttpParams().append('hapikey', hsApiKey);
-    // const headers = new HttpHeaders()
-    //   .set('Content-Type', 'application/json')
-    //   .set('Accept', 'application/json');
-    console.log(body);
-    // console.log(params);
-    // console.log(headers);
     return this.http.post(hsSubmitUrl, body, {
       /* eslint-disable */
       headers: {

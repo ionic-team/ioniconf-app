@@ -21,10 +21,6 @@ export class SwagPage implements OnInit {
   ngOnInit() {}
 
   async openSwagModal() {
-    // await Browser.open({
-    //   url: CoreConstants.swagformUrl,
-    // });
-
     const modal: HTMLIonModalElement = await this.modalController.create({
       component: SwagFormComponent,
       swipeToClose: true,

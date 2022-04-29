@@ -24,7 +24,7 @@ export class SpeakerViewComponent implements OnInit {
     this.speaker$ = this.speakersFacade.getSpeakerById(this.id);
   }
 
-  async openLink(link: string) {
-    await Browser.open({ url: link });
+  async openLink(url: string) {
+    await Browser.open({ url });
   }
 }

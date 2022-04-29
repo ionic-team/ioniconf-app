@@ -14,7 +14,6 @@ export class AppComponent implements OnInit {
   }
 
   initializeApp() {
-    console.log('App: Initialization');
     if (Capacitor.isNativePlatform()) {
       /**
        * To make sure we provide the fastest app loading experience for our
@@ -27,7 +26,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('App: ngOnInit');
     this.eventFacade.loadEvent();
   }
 }

@@ -6,7 +6,9 @@
     <ion-title>Enter to win</ion-title>
 
     <ion-buttons slot="end">
-      <ion-button (click)="submit()">Submit</ion-button>
+      <ion-button [disabled]="form.invalid" (click)="submit()">
+        Submit
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -18,16 +20,24 @@
       <ion-item>
         <ion-label>First Name</ion-label>
         <ion-input placeholder="John" formControlName="firstname"></ion-input>
-        <!-- <ion-text slot="error" *ngIf="f.firstname.errors?.required">
+        <ion-text
+          class="ion-padding-bottom"
+          slot="error"
+          *ngIf="submitted && f.firstname.errors?.required"
+        >
           First name is required
-        </ion-text> -->
+        </ion-text>
       </ion-item>
       <ion-item>
         <ion-label>Last Name</ion-label>
         <ion-input placeholder="Doe" formControlName="lastname"></ion-input>
-        <!-- <ion-text slot="error" *ngIf="f.lastname.errors?.required">
+        <ion-text
+          class="ion-padding-bottom"
+          slot="error"
+          *ngIf="submitted && f.lastname.errors?.required"
+        >
           Last name is required
-        </ion-text> -->
+        </ion-text>
       </ion-item>
       <ion-item>
         <ion-label>Work Email</ion-label>
@@ -36,13 +46,13 @@
           placeholder="jdoe@ionic.io"
           formControlName="email"
         ></ion-input>
-        <!-- <ion-text
+        <ion-text
           class="ion-padding-bottom"
           slot="error"
-          *ngIf="f.email.errors?.required"
+          *ngIf="submitted && f.email.errors?.required"
         >
           Email is required
-        </ion-text> -->
+        </ion-text>
       </ion-item>
       <ion-item>
         <ion-label>Job Function</ion-label>
@@ -54,6 +64,13 @@
             {{ job }}
           </ion-select-option>
         </ion-select>
+        <ion-text
+          class="ion-padding-bottom"
+          slot="error"
+          *ngIf="submitted && f.job.errors?.required"
+        >
+          Email is required
+        </ion-text>
       </ion-item>
     </ion-list>
 
@@ -69,20 +86,13 @@
             {{ size }}
           </ion-select-option>
         </ion-select>
-        <!-- <ion-text
+        <ion-text
           class="ion-padding-bottom"
           slot="error"
-          *ngIf="!tshirt.valid && (!tshirt.pristine || hubspotForm.submitted)"
+          *ngIf="submitted && f.tshirt.errors?.required"
         >
-          T-shirt Size is required
-        </ion-text> -->
-        <!-- <ion-text
-          class="ion-padding-bottom"
-          slot="error"
-          *ngIf="f.tshirt.errors?.required"
-        >
-          T-shirt Size is required
-        </ion-text> -->
+          T-shirt size is required
+        </ion-text>
       </ion-item>
       <ion-item>
         <ion-label>Topic(s) of Interest</ion-label>
@@ -94,6 +104,13 @@
             {{ topic.name }}
           </ion-select-option>
         </ion-select>
+        <ion-text
+          class="ion-padding-bottom"
+          slot="error"
+          *ngIf="submitted && f.topics.errors?.required"
+        >
+          Please choose at least one topic
+        </ion-text>
       </ion-item>
     </ion-list>
 
@@ -105,20 +122,31 @@
           placeholder="123 Any Street"
           formControlName="address"
         ></ion-input>
-        <!-- <ion-text slot="error" *ngIf="f.street.errors?.required">
+        <ion-text slot="error" *ngIf="submitted && f.address.errors?.required">
           Street is required
-        </ion-text> -->
+        </ion-text>
       </ion-item>
       <ion-item>
         <ion-label>City</ion-label>
         <ion-input placeholder="Boston" formControlName="city"></ion-input>
-        <!-- <ion-text slot="error" *ngIf="f.city.errors?.required">
+        <ion-text
+          class="ion-padding-bottom"
+          slot="error"
+          *ngIf="submitted && f.city.errors?.required"
+        >
           City is required
-        </ion-text> -->
+        </ion-text>
       </ion-item>
       <ion-item>
         <ion-label>Zip</ion-label>
         <ion-input placeholder="02215" formControlName="zip"></ion-input>
+        <ion-text
+          class="ion-padding-bottom"
+          slot="error"
+          *ngIf="submitted && f.zip.errors?.required"
+        >
+          Zip is required
+        </ion-text>
       </ion-item>
       <ion-item>
         <ion-label>Country</ion-label>
@@ -130,16 +158,15 @@
             {{ c }}
           </ion-select-option>
         </ion-select>
-        <!-- <ion-text
+        <ion-text
           class="ion-padding-bottom"
           slot="error"
-          *ngIf="f.country.errors?.required"
+          *ngIf="submitted && f.country.errors?.required"
         >
           Country is required
-        </ion-text> -->
+        </ion-text>
       </ion-item>
       <ion-item [hidden]="f.country.value !== 'United States'">
-        <!-- <ion-item> -->
         <ion-label>State</ion-label>
         <ion-select formControlName="state" interface="popover">
           <ion-select-option
@@ -149,14 +176,28 @@
             {{ st }}
           </ion-select-option>
         </ion-select>
-        <!-- <ion-text
+        <ion-text
           class="ion-padding-bottom"
           slot="error"
-          *ngIf="f.state.errors?.required"
+          *ngIf="submitted && f.state.errors?.required"
         >
           State is required
-        </ion-text> -->
+        </ion-text>
       </ion-item>
     </ion-list>
+
+    <ion-button (click)="submit()" expand="block" class="ion-margin-horizontal">
+      Submit
+    </ion-button>
   </form>
+  <ion-footer class="ion-padding">
+    <ion-text color="medium">
+      I understand that by submitting this form, I agree to Ionic's
+      <ion-router-link class="underline" (click)="openPrivacyPolicy()">
+        privacy policy </ion-router-link
+      >. This includes receiving marketing communications from Ionic and the
+      event sponsors. I understand that I can unsubscribe from receiving these
+      marketing communications at any time.
+    </ion-text>
+  </ion-footer>
 </ion-content>
