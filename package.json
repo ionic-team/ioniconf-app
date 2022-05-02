@@ -5,14 +5,18 @@
   "homepage": "https://ionic.io/ioniconf",
   "description": "Conference app for ioniconf 2022",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
+    "resources": "cordova-res ios --skip-config --copy && cordova-res android --skip-config --copy",
+    "prestart": "node ./scripts/index.js",
+    "prebuild": "ENVIRONMENT='production' node ./scripts/index.js",
     "build": "ng build",
+    "build:dev": "ionic build",
+    "prebuild:dev": "node ./scripts/index.js",
     "appflow:build": "ng build --prod",
-    "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "resources": "cordova-res ios --skip-config --copy && cordova-res android --skip-config --copy"
+    "ng": "ng",
+    "start": "ionic serve --external",
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
@@ -41,6 +45,7 @@
     "@ngrx/store-devtools": "^13.1.0",
     "@prismicio/client": "^6.4.3",
     "date-fns": "^2.28.0",
+    "dotenv": "^16.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
@@ -60,7 +65,7 @@
     "@ionic/lab": "3.2.11",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
+    "@types/node": "^12.20.50",
     "@typescript-eslint/eslint-plugin": "5.3.0",
     "@typescript-eslint/parser": "5.3.0",
     "cordova-res": "^0.15.4",
