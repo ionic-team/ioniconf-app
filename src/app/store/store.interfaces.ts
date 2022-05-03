@@ -15,6 +15,7 @@ export interface IonicEvent {
   speakers: Speaker[];
   companies: Company[];
   sponsors: Sponsor[];
+  swagRules: any;
 }
 
 export interface Session {

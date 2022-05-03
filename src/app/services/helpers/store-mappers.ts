@@ -47,6 +47,7 @@ export function mapPrismicIonicEventItem(
       mapPrismicSponsorItem(s)
     ),
     companies,
+    swagRules: eventData.swag_rules || [],
   };
 
   return event;

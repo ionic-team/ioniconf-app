@@ -10,6 +10,7 @@ import { ModalController } from '@ionic/angular';
 import { HubspotService } from 'src/app/services/hubspot.service';
 import { HubspotFormData } from 'src/app/store/store.interfaces';
 import { CoreConstants } from 'src/app/util/core.constants';
+import { RulesComponent } from '../rules/rules.component';
 
 @Component({
   selector: 'app-swag-form',
@@ -95,6 +96,15 @@ export class SwagFormComponent implements OnInit {
   public async openPrivacyPolicy(evt: any) {
     evt.stopPropagation();
     await Browser.open({ url: CoreConstants.privacyPolicyUrl });
+  }
+
+  public async openRulesModal() {
+    const modal: HTMLIonModalElement = await this.modalController.create({
+      component: RulesComponent,
+      swipeToClose: true,
+      presentingElement: await this.modalController.getTop(),
+    });
+    return await modal.present();
   }
 
   private setupForm() {
