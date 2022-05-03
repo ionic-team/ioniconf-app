@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
 import { SplashScreen } from '@capacitor/splash-screen';
+import { Deploy } from 'cordova-plugin-ionic';
 import { IonicEventFacade } from './facades/ionic-event.facade';
 
 @Component({
@@ -23,9 +24,32 @@ export class AppComponent implements OnInit {
        */
       SplashScreen.hide();
     }
+
+    this.performAutomaticUpdate();
   }
 
   ngOnInit() {
     this.eventFacade.loadEvent();
+  }
+
+  private async performAutomaticUpdate() {
+    try {
+      const currentVersion = await Deploy.getCurrentVersion();
+      const resp = await Deploy.sync(
+        { updateMethod: 'auto' },
+        (percentDone) => {
+          console.log(`Update is ${percentDone}% done!`);
+        }
+      );
+      if (!currentVersion || currentVersion.versionId !== resp.versionId) {
+        console.log(
+          'We found an update, and are in process of redirecting you!'
+        );
+      } else {
+        console.log('No update available.');
+      }
+    } catch (err) {
+      console.log(err);
+    }
   }
 }
