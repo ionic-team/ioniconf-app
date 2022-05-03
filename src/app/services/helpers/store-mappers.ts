@@ -120,7 +120,11 @@ function mapPrismicSpeakerItem(
     role: speakerObj.speaker_role,
     photoUrl:
       speakerObj.speaker_photo?.url || 'assets/ionic-blue-bkg-logo.jpeg',
-    biography: speakerObj.speaker_bio[0]?.text.trim() || '',
+    biography:
+      speakerObj.speaker_bio
+        .map((p) => p.text)
+        .join('\n\n')
+        .trim() || '',
     linkedin: speakerObj.speaker_linkedin?.url,
     twitter: speakerObj.speaker_twitter?.url,
     github: speakerObj.speaker_github?.url,
