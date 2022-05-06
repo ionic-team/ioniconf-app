@@ -6,6 +6,7 @@ import { AgendaFacade } from 'src/app/facades/agenda.facade';
 import { ReminderService } from 'src/app/services/reminder.service';
 import { Session } from 'src/app/store/store.interfaces';
 import { CoreConstants } from 'src/app/util/core.constants';
+import * as prismicH from '@prismicio/helpers';
 
 @Component({
   selector: 'app-session-details',
@@ -17,6 +18,7 @@ export class SessionDetailsComponent implements OnInit {
 
   public session$: Observable<Session>;
   public photoUrls: string[] = [];
+  public description: any;
   // eslint-disable-next-line @typescript-eslint/naming-convention
   public CoreConstants = CoreConstants;
 
@@ -30,6 +32,8 @@ export class SessionDetailsComponent implements OnInit {
     this.session$ = this.agendaFacade.getSession(this.sessionId);
 
     this.session$.subscribe((session) => {
+      console.log(session);
+      this.description = prismicH.asHTML(session.description);
       this.photoUrls = session.speakers.map((speaker) => speaker.photoUrl);
     });
   }

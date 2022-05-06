@@ -1,5 +1,8 @@
 ion-card.card-button {
   border-radius: 16px;
+  filter: drop-shadow(0px 0px 1px rgba(1, 5, 14, 0.08))
+    drop-shadow(0px 4px 8px rgba(1, 5, 14, 0.06))
+    drop-shadow(0px 8px 32px rgba(1, 5, 14, 0.04));
 }
 
 ion-card {
@@ -25,7 +28,7 @@ ion-card {
   }
 }
 
-ion-card-header {
+ion-card ion-card-header {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -52,22 +55,6 @@ ion-card-header ion-card-subtitle {
   line-height: 20px;
   margin-top: 4px;
   opacity: 0.9;
-}
-
-ion-card-content {
-  height: calc(60px + var(--ion-safe-area-top));
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
-}
-
-ion-card-content img {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  height: 24px;
 }
 
 ion-card.safe-area ion-card-content img {

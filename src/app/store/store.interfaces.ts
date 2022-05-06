@@ -21,7 +21,7 @@ export interface IonicEvent {
 export interface Session {
   id: number;
   title: string;
-  description: string;
+  description: any;
   speakers: Speaker[];
   startTime: Date;
   endTime: Date;

@@ -1,13 +1,11 @@
-@use "sass:math";
-$agenda-margin: 16px;
-
 .header {
-  margin: 20px 0;
+  margin: 20px 20px 32px 20px;
+  padding: 0;
 }
 
 .header .avatars {
   display: flex;
-  margin: 0 0 #{$agenda-margin} 0;
+  margin: 0 0 18px 0;
 }
 
 app-session-avatars {
@@ -17,7 +15,7 @@ app-session-avatars {
 .header h1 {
   font-size: 24px;
   font-weight: 700;
-  margin: 0 0 #{math.div($agenda-margin, 2)} 0;
+  margin: 0 0 8px 0;
   color: var(--ion-color-step-950);
 }
 
@@ -28,26 +26,62 @@ app-session-avatars {
   color: var(--ion-color-step-650);
 }
 
+ion-list-header {
+  margin: 0 20px;
+  padding: 0;
+}
+
 ion-list.list-inset {
-  margin-top: 8px;
+  margin: 4px 20px 32px 20px;
 }
 
 .description-list ion-item ion-text {
-  color: var(--ion-color-step-800);
+  padding: 0;
+  color: #222d3a;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.01em;
 }
 
-.when-list ion-item ion-label {
-  font-weight: 600;
+.when-list {
+  ion-item {
+    ion-label {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: -0.01em;
+    }
+    ion-note {
+      color: #434f5e;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 14px;
+      letter-spacing: -0.01em;
+    }
+  }
 }
 
-.when-list ion-item ion-note {
-  font-size: 14px;
-  font-weight: 500;
+.watch-list {
+  ion-item {
+    color: var(--ion-color-step-650);
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: -0.01em;
 
-  color: var(--ion-color-step-650);
+    &.watch-live {
+      ion-label {
+        --color: var(--ion-color-primary);
+      }
+    }
+  }
 }
 
-ion-item.watch-live {
-  --color: var(--ion-color-primary);
-  --border-color: var(--ion-color-step-200);
-}
+/** 
+  * Not sure why there is a full-width line in the Watch section
+  * if I don't have this.
+  */
+// .list-md.list-inset ion-item:first-child,
+// .list-ios.list-inset ion-item:first-child {
+//   --border-width: 0;
+// }

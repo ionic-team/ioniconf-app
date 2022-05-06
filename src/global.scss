@@ -59,22 +59,21 @@ ion-content.page-content ion-toolbar {
 }
 
 ion-list.list-inset.md {
-  padding-top: 0px;
-  padding-bottom: 0px;
-
+  padding-top: 0;
+  padding-bottom: 0;
   border-radius: 12px;
+  border-width: 0;
 }
 
-.connect-button.md {
-  --box-shadow: none;
-  --border-radius: 16px 24px;
+// .connect-button.md {
+//   --box-shadow: none;
+//   --border-radius: 16px 24px;
+//   width: 56px !important;
+// }
 
-  width: 56px !important;
-}
-
-.connect-button.md ion-icon {
-  width: 24px !important;
-}
+// .connect-button.md ion-icon {
+//   width: 24px !important;
+// }
 
 .grid {
   display: grid;

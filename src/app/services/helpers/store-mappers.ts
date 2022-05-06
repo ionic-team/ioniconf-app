@@ -80,9 +80,10 @@ function mapPrismicSessionItem(
   const session: Session = {
     id: sessionObj.session_id,
     title: sessionObj.session_title,
-    description: sessionObj.session_description.length
-      ? sessionObj.session_description[0].text
-      : '',
+    // description: sessionObj.session_description.length
+    //   ? sessionObj.session_description[0].text
+    //   : '',
+    description: sessionObj.session_description || [],
     speakers: sessionSpeakers,
     startTime: parseISODate(sessionObj.session_datetime),
     endTime: datetimeAfterDuration(
