@@ -2,5 +2,10 @@
 	"appId": "io.ionic.ioniconf",
 	"appName": "ioniconf",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"cordova": {
+		"preferences": {
+			"DisableDeploy": "true"
+		}
+	}
 }

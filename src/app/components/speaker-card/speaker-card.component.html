@@ -1,8 +1,7 @@
 <ion-card
   *ngIf="speaker$ | async as speaker"
   [ngClass]="{
-    'card-button': button,
-    'safe-area': safeArea
+    'card-button': button
   }"
   [button]="button"
   [style.backgroundImage]="'url(' + speaker.photoUrl + ')'"

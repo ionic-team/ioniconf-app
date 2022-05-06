@@ -13,14 +13,6 @@
 
   <div class="ion-padding grid">
     <ng-container *ngIf="speakersFacade.speakersLoaded$ | async; else loading">
-      <!-- <ion-list>
-        <ion-item
-          *ngFor="let item of speakersFacade.speakers$ | async; trackBy: trackItems"
-          [id]="item.id"
-        >
-          <ion-label>{{item.fullName}}</ion-label>
-        </ion-item>
-      </ion-list> -->
       <app-speaker-card
         *ngFor="let item of speakersFacade.speakers$ | async; trackBy: trackItems"
         [id]="item.id"

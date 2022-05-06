@@ -1,39 +1,43 @@
-<ion-content *ngIf="speaker$ | async as speaker">
-  <app-speaker-card [safeArea]="true" [id]="id"></app-speaker-card>
+<ion-content>
+  <ng-container *ngIf="speaker$ | async as speaker; else loading">
+    <app-speaker-card [safeArea]="true" [id]="id"></app-speaker-card>
 
-  <div class="details">
-    <h2 class="eas-header-large">About {{ speaker.firstName }}</h2>
-    <ion-text>{{ speaker.biography }}</ion-text>
-    <br /><br />
+    <div class="details">
+      <h2 class="eas-header-large">About {{ speaker.firstName }}</h2>
+      <ion-text>{{ speaker.biography }}</ion-text>
 
-    <h2 class="eas-header-large">Connect with {{ speaker.firstName }}</h2>
-    <div class="social-btns">
-      <ion-button
-        color="light"
-        class="connect-button"
-        (click)="openLink(speaker.linkedin)"
-        *ngIf="speaker.linkedin"
-      >
-        <ion-icon src="assets/icon/linkedin.svg"></ion-icon>
-      </ion-button>
+      <h2 class="eas-header-large">Connect with {{ speaker.firstName }}</h2>
+      <div class="social-btns">
+        <ion-button
+          color="light"
+          class="connect-button"
+          (click)="openLink(speaker.linkedin)"
+          *ngIf="speaker.linkedin"
+        >
+          <ion-icon src="assets/icon/linkedin.svg"></ion-icon>
+        </ion-button>
 
-      <ion-button
-        color="light"
-        class="connect-button"
-        (click)="openLink(speaker.github)"
-        *ngIf="speaker.github"
-      >
-        <ion-icon src="assets/icon/github.svg"></ion-icon>
-      </ion-button>
+        <ion-button
+          color="light"
+          class="connect-button"
+          (click)="openLink(speaker.github)"
+          *ngIf="speaker.github"
+        >
+          <ion-icon src="assets/icon/github.svg"></ion-icon>
+        </ion-button>
 
-      <ion-button
-        color="light"
-        class="connect-button"
-        (click)="openLink(speaker.twitter)"
-        *ngIf="speaker.twitter"
-      >
-        <ion-icon src="assets/icon/twitter.svg"></ion-icon>
-      </ion-button>
+        <ion-button
+          color="light"
+          class="connect-button"
+          (click)="openLink(speaker.twitter)"
+          *ngIf="speaker.twitter"
+        >
+          <ion-icon src="assets/icon/twitter.svg"></ion-icon>
+        </ion-button>
+      </div>
     </div>
-  </div>
+  </ng-container>
+  <ng-template #loading>
+    <ion-spinner></ion-spinner>
+  </ng-template>
 </ion-content>

@@ -34,7 +34,7 @@ export class SessionCardComponent implements OnInit {
     const modal: HTMLIonModalElement = await this.modalController.create({
       component: SessionDetailsComponent,
       swipeToClose: true,
-      presentingElement: this.routerOutlet.nativeEl,
+      presentingElement: this.routerOutlet.parentOutlet.nativeEl,
       componentProps: {
         sessionId,
       },
