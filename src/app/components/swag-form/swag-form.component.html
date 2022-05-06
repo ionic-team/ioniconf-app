@@ -14,12 +14,11 @@
 <ion-content [fullscreen]="true" class="page-content">
   <form [formGroup]="form" (ngSubmit)="submit()">
     <ion-list-header>Contact Info</ion-list-header>
-    <ion-list [inset]="true">
+    <ion-list inset="true">
       <ion-item>
         <ion-label>First Name</ion-label>
         <ion-input placeholder="John" formControlName="firstname"></ion-input>
         <ion-text
-          class="ion-padding-bottom"
           slot="error"
           *ngIf="submitted && f.firstname.errors?.required"
         >
@@ -29,11 +28,7 @@
       <ion-item>
         <ion-label>Last Name</ion-label>
         <ion-input placeholder="Doe" formControlName="lastname"></ion-input>
-        <ion-text
-          class="ion-padding-bottom"
-          slot="error"
-          *ngIf="submitted && f.lastname.errors?.required"
-        >
+        <ion-text slot="error" *ngIf="submitted && f.lastname.errors?.required">
           Last name is required
         </ion-text>
       </ion-item>
@@ -44,11 +39,7 @@
           placeholder="jdoe@ionic.io"
           formControlName="email"
         ></ion-input>
-        <ion-text
-          class="ion-padding-bottom"
-          slot="error"
-          *ngIf="submitted && f.email.errors?.required"
-        >
+        <ion-text slot="error" *ngIf="submitted && f.email.errors?.required">
           Email is required
         </ion-text>
       </ion-item>
@@ -62,11 +53,7 @@
             {{ job }}
           </ion-select-option>
         </ion-select>
-        <ion-text
-          class="ion-padding-bottom"
-          slot="error"
-          *ngIf="submitted && f.job.errors?.required"
-        >
+        <ion-text slot="error" *ngIf="submitted && f.job.errors?.required">
           Email is required
         </ion-text>
       </ion-item>
@@ -84,11 +71,7 @@
             {{ size }}
           </ion-select-option>
         </ion-select>
-        <ion-text
-          class="ion-padding-bottom"
-          slot="error"
-          *ngIf="submitted && f.tshirt.errors?.required"
-        >
+        <ion-text slot="error" *ngIf="submitted && f.tshirt.errors?.required">
           T-shirt size is required
         </ion-text>
       </ion-item>
@@ -102,11 +85,7 @@
             {{ topic.name }}
           </ion-select-option>
         </ion-select>
-        <ion-text
-          class="ion-padding-bottom"
-          slot="error"
-          *ngIf="submitted && f.topics.errors?.required"
-        >
+        <ion-text slot="error" *ngIf="submitted && f.topics.errors?.required">
           Please choose at least one topic
         </ion-text>
       </ion-item>
@@ -127,22 +106,14 @@
       <ion-item>
         <ion-label>City</ion-label>
         <ion-input placeholder="Boston" formControlName="city"></ion-input>
-        <ion-text
-          class="ion-padding-bottom"
-          slot="error"
-          *ngIf="submitted && f.city.errors?.required"
-        >
+        <ion-text slot="error" *ngIf="submitted && f.city.errors?.required">
           City is required
         </ion-text>
       </ion-item>
       <ion-item>
         <ion-label>Zip</ion-label>
         <ion-input placeholder="02215" formControlName="zip"></ion-input>
-        <ion-text
-          class="ion-padding-bottom"
-          slot="error"
-          *ngIf="submitted && f.zip.errors?.required"
-        >
+        <ion-text slot="error" *ngIf="submitted && f.zip.errors?.required">
           Zip is required
         </ion-text>
       </ion-item>
@@ -156,11 +127,7 @@
             {{ c }}
           </ion-select-option>
         </ion-select>
-        <ion-text
-          class="ion-padding-bottom"
-          slot="error"
-          *ngIf="submitted && f.country.errors?.required"
-        >
+        <ion-text slot="error" *ngIf="submitted && f.country.errors?.required">
           Country is required
         </ion-text>
       </ion-item>
@@ -174,21 +141,22 @@
             {{ st }}
           </ion-select-option>
         </ion-select>
-        <ion-text
-          class="ion-padding-bottom"
-          slot="error"
-          *ngIf="submitted && f.state.errors?.required"
-        >
+        <ion-text slot="error" *ngIf="submitted && f.state.errors?.required">
           State is required
         </ion-text>
       </ion-item>
     </ion-list>
 
-    <ion-button (click)="submit()" expand="block" class="ion-margin-horizontal">
+    <ion-button
+      (click)="submit()"
+      expand="block"
+      class="submit-btn"
+      [disabled]="form.invalid"
+    >
       Submit
     </ion-button>
   </form>
-  <ion-footer class="ion-padding">
+  <ion-footer class="ion-no-border">
     <ion-text color="medium">
       I understand that by submitting this form, I agree to Ionic's
       <a (click)="openPrivacyPolicy($event)">privacy policy</a>. This includes

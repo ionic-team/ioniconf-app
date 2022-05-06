@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Browser } from '@capacitor/browser';
-import { ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { SpeakersFacade } from 'src/app/facades/speakers.facade';
 import { Speaker } from 'src/app/store/store.interfaces';
@@ -15,10 +14,7 @@ export class SpeakerViewComponent implements OnInit {
 
   public speaker$: Observable<Speaker>;
 
-  constructor(
-    public modalController: ModalController,
-    public speakersFacade: SpeakersFacade
-  ) {}
+  constructor(public speakersFacade: SpeakersFacade) {}
 
   ngOnInit() {
     this.speaker$ = this.speakersFacade.getSpeakerById(this.id);

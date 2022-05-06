@@ -12,24 +12,24 @@
   </ion-header>
 
   <ion-card>
-    <ion-row class="ion-align-items-center">
-      <ion-col size="12" sizeSm="6" sizeLg="5" class="ion-padding">
+    <ion-row>
+      <ion-col size="12" sizeSm="6" sizeLg="5" class="swag">
         <img src="assets/swag.png" />
       </ion-col>
       <ion-col size="12" sizeSm="6" sizeLg="7" class="welcome">
         <ion-card-header>
-          <ion-card-title><strong>Ioniconf 2022 Swag</strong></ion-card-title>
+          <ion-card-title>Ioniconf 2022 Swag</ion-card-title>
+          <ion-card-subtitle>
+            Conference attendees, enter your info to request an ioniconf 2022
+            sticker pack. From the sticker submissions, a few will be randomly
+            selected to receive additional Ionic swag!
+          </ion-card-subtitle>
         </ion-card-header>
 
-        <ion-card-content>
-          Conference attendees, enter your info to request an ioniconf 2022
-          sticker pack. From the sticker submissions, a few will be randomly
-          selected to receive additional Ionic swag!
-          <br />
-        </ion-card-content>
         <ion-button
-          class="ion-margin-horizontal ion-margin-bottom"
+          class="enter-btn"
           expand="block"
+          color="primary"
           (click)="openSwagModal()"
         >
           Enter to win

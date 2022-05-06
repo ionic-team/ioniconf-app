@@ -1,29 +1,28 @@
 .header {
   margin: 20px 20px 32px 20px;
   padding: 0;
-}
 
-.header .avatars {
-  display: flex;
-  margin: 0 0 18px 0;
-}
+  .avatars {
+    display: flex;
+    margin: 0 0 18px 0;
 
-app-session-avatars {
-  --outline-color: var(--ion-color-light);
-}
+    app-session-avatars {
+      --outline-color: var(--ion-color-light);
+    }
+  }
 
-.header h1 {
-  font-size: 24px;
-  font-weight: 700;
-  margin: 0 0 8px 0;
-  color: var(--ion-color-step-950);
-}
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+  }
 
-.header h2 {
-  font-size: 16px;
-  font-weight: 500;
-  margin: 0;
-  color: var(--ion-color-step-650);
+  h2 {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+    color: var(--ion-color-carbon-dark);
+  }
 }
 
 ion-list-header {
@@ -78,9 +77,9 @@ ion-list.list-inset {
 }
 
 /** 
-  * Not sure why there is a full-width line in the Watch section
-  * if I don't have this.
-  */
+ * Not sure why there is a full-width line in the Watch section
+ * if I don't have this.
+ */
 // .list-md.list-inset ion-item:first-child,
 // .list-ios.list-inset ion-item:first-child {
 //   --border-width: 0;

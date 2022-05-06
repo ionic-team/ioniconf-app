@@ -35,7 +35,9 @@ export class SpeakerCardComponent implements OnInit {
     const modal = await this.modalController.create({
       component: SpeakerViewComponent,
       // swipeToClose: true,
-      // presentingElement: this.routerOutlet.nativeEl,
+      // presentingElement: this.routerOutlet
+      //   ? await this.modalController.getTop()
+      //   : this.routerOutlet.nativeEl,
       componentProps: {
         id: this.id,
       },

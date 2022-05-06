@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { SpeakerCardComponentModule } from 'src/app/components/speaker-card/speaker-card.module';
 import { SpeakerViewComponentModule } from 'src/app/components/speaker-view/speaker-view.module';
@@ -15,6 +16,7 @@ import { SpeakersPage } from './speakers.page';
     SpeakersStateModule,
     SpeakerCardComponentModule,
     SpeakerViewComponentModule,
+    RouterModule,
   ],
   declarations: [SpeakersPage],
 })
