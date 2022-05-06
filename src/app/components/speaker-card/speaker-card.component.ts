@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Optional } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, Optional } from '@angular/core';
 import { IonRouterOutlet, ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { SpeakersFacade } from 'src/app/facades/speakers.facade';
@@ -9,6 +9,7 @@ import { SpeakerViewComponent } from '../speaker-view/speaker-view.component';
   selector: 'app-speaker-card',
   templateUrl: './speaker-card.component.html',
   styleUrls: ['./speaker-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpeakerCardComponent implements OnInit {
   @Input() public id: number;
@@ -21,7 +22,7 @@ export class SpeakerCardComponent implements OnInit {
     private speakersFacade: SpeakersFacade,
     private modalController: ModalController,
     @Optional() private routerOutlet: IonRouterOutlet
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.speaker$ = this.speakersFacade.getSpeakerById(this.id);
@@ -32,15 +33,20 @@ export class SpeakerCardComponent implements OnInit {
       return;
     }
 
+    console.time('SpeakerCardComponent.presentModal');
+
     const modal = await this.modalController.create({
       component: SpeakerViewComponent,
       swipeToClose: true,
-      presentingElement: this.routerOutlet.nativeEl,
+      presentingElement: this.routerOutlet.parentOutlet.nativeEl,
       componentProps: {
         id: this.id,
       },
     });
 
-    modal.present();
+    await modal.present();
+
+    console.timeEnd('SpeakerCardComponent.presentModal');
   }
+
 }
