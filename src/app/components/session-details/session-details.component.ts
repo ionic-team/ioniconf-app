@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
 import { Browser } from '@capacitor/browser';
 import { ToastController } from '@ionic/angular';
 import { Observable } from 'rxjs';
@@ -10,10 +9,12 @@ import { CoreConstants } from 'src/app/util/core.constants';
 
 @Component({
   selector: 'app-session-details',
-  templateUrl: './session-details.page.html',
-  styleUrls: ['./session-details.page.scss'],
+  templateUrl: './session-details.component.html',
+  styleUrls: ['./session-details.component.scss'],
 })
-export class SessionDetailsPage implements OnInit {
+export class SessionDetailsComponent implements OnInit {
+  @Input() public sessionId: number;
+
   public session$: Observable<Session>;
   public photoUrls: string[] = [];
   // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -21,15 +22,13 @@ export class SessionDetailsPage implements OnInit {
 
   constructor(
     public agendaFacade: AgendaFacade,
-    private route: ActivatedRoute,
     private reminderService: ReminderService,
     private toastController: ToastController
-  ) {
-    const sessionId = Number(this.route.snapshot.paramMap.get('sessionId'));
-    this.session$ = this.agendaFacade.getSession(sessionId);
-  }
+  ) {}
 
   ngOnInit(): void {
+    this.session$ = this.agendaFacade.getSession(this.sessionId);
+
     this.session$.subscribe((session) => {
       this.photoUrls = session.speakers.map((speaker) => speaker.photoUrl);
     });

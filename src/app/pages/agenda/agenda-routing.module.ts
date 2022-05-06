@@ -8,13 +8,6 @@ const routes: Routes = [
     path: '',
     component: AgendaPage,
   },
-  {
-    path: ':sessionId',
-    loadChildren: () =>
-      import('src/app/pages/session-details/session-details.module').then(
-        (m) => m.SessionDetailsPageModule
-      ),
-  },
 ];
 
 @NgModule({

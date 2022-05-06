@@ -1,9 +1,9 @@
 <ion-content *ngIf="speaker$ | async as speaker">
-  <ion-buttons id="close-button">
+  <!-- <ion-buttons id="close-button">
     <ion-button color="dark" (click)="modalController.dismiss()">
       <ion-icon name="close-circle" size="large"></ion-icon>
     </ion-button>
-  </ion-buttons>
+  </ion-buttons> -->
 
   <app-speaker-card [safeArea]="true" [id]="id"></app-speaker-card>
 
@@ -19,10 +19,7 @@
       (click)="openLink(speaker.linkedin)"
       *ngIf="speaker.linkedin"
     >
-      <div>
-        <ion-icon name="logo-linkedin"></ion-icon><br />
-        <ion-label>LinkedIn</ion-label>
-      </div>
+      <ion-icon src="assets/icon/linkedin.svg"></ion-icon>
     </ion-button>
 
     <ion-button
@@ -31,10 +28,7 @@
       (click)="openLink(speaker.github)"
       *ngIf="speaker.github"
     >
-      <div>
-        <ion-icon name="logo-github"></ion-icon><br />
-        <ion-label>GitHub</ion-label>
-      </div>
+      <ion-icon src="assets/icon/github.svg"></ion-icon>
     </ion-button>
 
     <ion-button
@@ -43,10 +37,7 @@
       (click)="openLink(speaker.twitter)"
       *ngIf="speaker.twitter"
     >
-      <div>
-        <ion-icon name="logo-twitter" size="large"></ion-icon><br />
-        <ion-label>Twitter</ion-label>
-      </div>
+      <ion-icon src="assets/icon/twitter.svg"></ion-icon>
     </ion-button>
   </div>
 </ion-content>

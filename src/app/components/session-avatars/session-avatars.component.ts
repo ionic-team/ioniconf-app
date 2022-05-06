@@ -11,5 +11,7 @@ export class SessionAvatarsComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.urls = this.urls.reverse();
+  }
 }

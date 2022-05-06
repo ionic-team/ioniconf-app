@@ -1,13 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-
 import { SpeakerCardComponent } from './speaker-card.component';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, IonicModule],
+  imports: [CommonModule, IonicModule, RouterModule],
   declarations: [SpeakerCardComponent],
   exports: [SpeakerCardComponent],
 })

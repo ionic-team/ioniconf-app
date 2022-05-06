@@ -28,7 +28,6 @@
 .md .eas-header-small {
   font-size: 16px;
   font-weight: 500;
-
   min-height: 20px;
 }
 
@@ -37,28 +36,17 @@
   font-weight: 700;
 }
 
-.md .eas-header-medium {
-  font-size: 16px;
-  font-weight: 500;
-
-  min-height: 20px;
-}
-
-.ios .eas-header-medium {
-  font-size: 20px;
-  font-weight: 700;
-}
-
 .md .eas-header-large {
   font-size: 20px;
   font-weight: 500;
-
   min-height: 20px;
+  letter-spacing: -0.01em;
 }
 
 .ios .eas-header-large {
   font-size: 20px;
   font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 ion-content.page-content,
@@ -79,13 +67,9 @@ ion-list.list-inset.md {
 
 .connect-button.md {
   --box-shadow: none;
-  --border-radius: 16px;
+  --border-radius: 16px 24px;
 
   width: 56px !important;
-}
-
-.connect-button.md ion-label {
-  display: none;
 }
 
 .connect-button.md ion-icon {

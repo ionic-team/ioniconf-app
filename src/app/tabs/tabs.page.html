@@ -1,35 +1,10 @@
-<!-- <ion-tabs>
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="home">
-      <ion-icon name="home"></ion-icon>
-      <ion-label>Home</ion-label>
-    </ion-tab-button>
-    <ion-tab-button tab="agenda">
-      <ion-icon name="calendar"></ion-icon>
-      <ion-label>Agenda</ion-label>
-    </ion-tab-button>
-    <ion-tab-button tab="speakers">
-      <ion-icon name="people"></ion-icon>
-      <ion-label>Speakers</ion-label>
-    </ion-tab-button>
-    <ion-tab-button tab="sponsors">
-      <ion-icon name="star"></ion-icon>
-      <ion-label>Sponsors</ion-label>
-    </ion-tab-button>
-    <ion-tab-button tab="swag">
-      <ion-icon name="shirt"></ion-icon>
-      <ion-label>Swag</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs> -->
-
 <ion-tabs (ionTabsWillChange)="onTabsWillChange($event)">
   <ion-tab-bar slot="bottom">
     <ion-tab-button *ngFor="let btn of buttons" [tab]="btn.value">
       <ion-icon
-        [name]="selectedTab === btn.value ? btn.icon : btn.icon + '-outline'"
+        [src]="'assets/icon/' + (selectedTab === btn.value ? btn.icon : btn.icon + '-outline') + '.svg'"
       ></ion-icon>
-      <ion-label>{{btn.title}}</ion-label>
+      <!-- <ion-label>{{btn.title}}</ion-label> -->
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

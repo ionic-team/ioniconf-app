@@ -1,11 +1,3 @@
-<ion-header collapse="fade" [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/" text="Agenda"></ion-back-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content class="page-content" [fullscreen]="true">
   <ng-container *ngIf="session$ | async as session; else loading">
     <div class="header ion-padding">
@@ -19,13 +11,13 @@
       <h1>{{ session.title }}</h1>
       <h2>
         <div *ngFor="let speaker of session.speakers">
-          {{ speaker.firstName }} {{ speaker.lastName }}, {{ speaker.role }}, {{
-          speaker.company.name }}
+          {{ speaker.firstName }} {{ speaker.lastName }}, {{ speaker.role }},
+          {{ speaker.company.name }}
         </div>
       </h2>
     </div>
 
-    <ion-list-header class="eas-header-small">About this talk</ion-list-header>
+    <ion-list-header class="eas-header-large">About this talk</ion-list-header>
     <ion-list [inset]="true" class="description-list">
       <ion-item lines="none">
         <ion-text
@@ -35,11 +27,11 @@
       </ion-item>
     </ion-list>
 
-    <ion-list-header class="eas-header-small">When</ion-list-header>
+    <ion-list-header class="eas-header-large">When</ion-list-header>
     <ion-list [inset]="true" class="when-list">
       <ion-item lines="none">
         <ion-label>
-          {{session.startTime | date: 'EEEE, MMMM d'}}<br />
+          {{ session.startTime | date: "EEEE, MMMM d" }}<br />
           <ion-note>
             {{ session.startTime | talkTime: session.endTime }}
           </ion-note>
@@ -47,7 +39,7 @@
       </ion-item>
     </ion-list>
 
-    <ion-list-header class="eas-header-small">Watch</ion-list-header>
+    <ion-list-header class="eas-header-large">Watch</ion-list-header>
     <ion-list [inset]="true">
       <ion-item
         [detail]="false"

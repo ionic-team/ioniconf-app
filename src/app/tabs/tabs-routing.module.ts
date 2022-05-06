@@ -8,11 +8,6 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'home',
-        loadChildren: () =>
-          import('../pages/home/home.module').then((m) => m.HomePageModule),
-      },
-      {
         path: 'agenda',
         loadChildren: () =>
           import('../pages/agenda/agenda.module').then(
@@ -26,13 +21,13 @@ const routes: Routes = [
             (m) => m.SpeakersPageModule
           ),
       },
-      {
-        path: 'sponsors',
-        loadChildren: () =>
-          import('../pages/sponsors/sponsors.module').then(
-            (m) => m.SponsorsPageModule
-          ),
-      },
+      // {
+      //   path: 'sponsors',
+      //   loadChildren: () =>
+      //     import('../pages/sponsors/sponsors.module').then(
+      //       (m) => m.SponsorsPageModule
+      //     ),
+      // },
       {
         path: 'swag',
         loadChildren: () =>
@@ -40,7 +35,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/home',
+        redirectTo: '/agenda',
         pathMatch: 'full',
       },
     ],

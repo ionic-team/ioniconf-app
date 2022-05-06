@@ -11,33 +11,12 @@ import { StorageService } from '../services/storage.service';
   styleUrls: ['tabs.page.scss'],
 })
 export class TabsPage implements OnInit {
-  public selectedTab = 'home';
+  public selectedTab = 'agenda';
   public buttons = [
-    {
-      title: 'Home',
-      value: 'home',
-      icon: 'home',
-    },
-    {
-      title: 'Agenda',
-      value: 'agenda',
-      icon: 'calendar',
-    },
-    {
-      title: 'Speakers',
-      value: 'speakers',
-      icon: 'people',
-    },
-    {
-      title: 'Sponsors',
-      value: 'sponsors',
-      icon: 'star',
-    },
-    {
-      title: 'Swag',
-      value: 'swag',
-      icon: 'shirt',
-    },
+    { title: 'Agenda', value: 'agenda', icon: 'calendar' },
+    { title: 'Speakers', value: 'speakers', icon: 'users' },
+    // { title: 'Sponsors', value: 'sponsors', icon: 'star' },
+    { title: 'Swag', value: 'swag', icon: 'shirt' },
   ];
 
   constructor(

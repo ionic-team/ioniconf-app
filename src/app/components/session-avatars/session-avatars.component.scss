@@ -1,13 +1,15 @@
+@use "sass:math";
+
 :host {
   --outline-color: var(--ion-background-color);
 }
 
 .container {
-  display: flex;
-
-  align-items: center;
-
-  width: fit-content;
+  // display: flex;
+  // align-items: left;
+  // width: fit-content;
+  display: inline-flex;
+  flex-direction: row-reverse;
 }
 
 ion-avatar {
@@ -22,15 +24,6 @@ ion-avatar {
   box-shadow: 0px 0px 0px 4px var(--outline-color);
 }
 
-/**
- * Possibly a better way to do this?
- */
-ion-avatar:nth-of-type(1) {
-  z-index: 1;
-}
-
-ion-avatar:nth-of-type(2) {
-  margin-left: -6px;
-
-  z-index: 0;
+ion-avatar:not(:last-child) {
+  margin-left: -12px;
 }
