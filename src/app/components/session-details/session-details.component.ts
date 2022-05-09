@@ -1,12 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Browser } from '@capacitor/browser';
-import { ToastController } from '@ionic/angular';
+import { Capacitor } from '@capacitor/core';
+import { ModalController, Platform, ToastController } from '@ionic/angular';
+import * as prismicH from '@prismicio/helpers';
 import { Observable } from 'rxjs';
 import { AgendaFacade } from 'src/app/facades/agenda.facade';
 import { ReminderService } from 'src/app/services/reminder.service';
 import { Session } from 'src/app/store/store.interfaces';
 import { CoreConstants } from 'src/app/util/core.constants';
-import * as prismicH from '@prismicio/helpers';
 
 @Component({
   selector: 'app-session-details',
@@ -16,6 +17,7 @@ import * as prismicH from '@prismicio/helpers';
 export class SessionDetailsComponent implements OnInit {
   @Input() public sessionId: number;
 
+  public showClose = true;
   public session$: Observable<Session>;
   public photoUrls: string[] = [];
   public description: any;
@@ -23,12 +25,15 @@ export class SessionDetailsComponent implements OnInit {
   public CoreConstants = CoreConstants;
 
   constructor(
+    public modalController: ModalController,
     public agendaFacade: AgendaFacade,
+    private platform: Platform,
     private reminderService: ReminderService,
     private toastController: ToastController
   ) {}
 
   ngOnInit(): void {
+    this.showClose = !this.platform.platforms().includes('ios');
     this.session$ = this.agendaFacade.getSession(this.sessionId);
 
     this.session$.subscribe((session) => {

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Optional } from '@angular/core';
-import { IonRouterOutlet, ModalController } from '@ionic/angular';
+import { IonRouterOutlet, ModalController, Platform } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { SpeakersFacade } from 'src/app/facades/speakers.facade';
 import { Speaker } from 'src/app/store/store.interfaces';
@@ -14,15 +14,18 @@ export class SpeakerCardComponent implements OnInit {
   @Input() public id: number;
   @Input() public button = false;
 
+  public showClose = true;
   public speaker$: Observable<Speaker>;
 
   constructor(
+    public modalController: ModalController,
+    private platform: Platform,
     private speakersFacade: SpeakersFacade,
-    private modalController: ModalController,
     @Optional() private routerOutlet: IonRouterOutlet
   ) {}
 
   ngOnInit() {
+    this.showClose = !this.button && !this.platform.platforms().includes('ios');
     this.speaker$ = this.speakersFacade.getSpeakerById(this.id);
   }
 

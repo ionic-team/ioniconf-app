@@ -1,5 +1,11 @@
 <ion-content class="page-content" [fullscreen]="true">
   <ng-container *ngIf="session$ | async as session; else loading">
+    <ion-buttons *ngIf="showClose" id="close-button">
+      <ion-button color="dark" (click)="modalController.dismiss()">
+        <ion-icon name="close-circle" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
     <div class="header">
       <div class="avatars">
         <app-session-avatars

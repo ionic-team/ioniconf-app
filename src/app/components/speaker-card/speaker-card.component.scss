@@ -1,3 +1,9 @@
+#close-button {
+  position: fixed;
+  top: max(var(--ion-safe-area-top), 16px);
+  right: 8px;
+}
+
 ion-card.card-button {
   border-radius: 16px;
   box-shadow: 0px 0px 1px rgba(1, 5, 14, 0.08), 0px 4px 8px rgba(1, 5, 14, 0.06),
