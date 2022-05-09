@@ -13,7 +13,6 @@ import { SpeakerViewComponent } from '../speaker-view/speaker-view.component';
 export class SpeakerCardComponent implements OnInit {
   @Input() public id: number;
   @Input() public button = false;
-  @Input() public safeArea = false;
 
   public speaker$: Observable<Speaker>;
 
