@@ -120,25 +120,23 @@
       <ion-item>
         <ion-label>Country</ion-label>
         <ion-select formControlName="country" interface="popover">
-          <ion-select-option
-            *ngFor="let c of hubspotService.countries"
-            [value]="c"
-          >
-            {{ c }}
+          <ion-select-option *ngFor="let c of countries" [value]="c.name">
+            {{ c.name }}
           </ion-select-option>
         </ion-select>
         <ion-text slot="error" *ngIf="submitted && f.country.errors?.required">
           Country is required
         </ion-text>
       </ion-item>
-      <ion-item [hidden]="f.country.value !== 'United States'">
+      <!-- <ion-item [hidden]="f.country.value !== 'United States'"> -->
+      <ion-item>
         <ion-label>State</ion-label>
         <ion-select formControlName="state" interface="popover">
           <ion-select-option
-            *ngFor="let st of hubspotService.states"
-            [value]="st"
+            *ngFor="let st of f.country.value | states"
+            [value]="st.name"
           >
-            {{ st }}
+            {{ st.name }}
           </ion-select-option>
         </ion-select>
         <ion-text slot="error" *ngIf="submitted && f.state.errors?.required">

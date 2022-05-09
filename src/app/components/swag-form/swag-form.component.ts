@@ -7,13 +7,12 @@ import {
 } from '@angular/forms';
 import { Browser } from '@capacitor/browser';
 import { ModalController } from '@ionic/angular';
+import { Country, State } from 'country-state-city';
+import { ICountry } from 'country-state-city/dist/lib/interface';
 import { HubspotService } from 'src/app/services/hubspot.service';
 import { HubspotFormData } from 'src/app/store/store.interfaces';
 import { CoreConstants } from 'src/app/util/core.constants';
 import { RulesComponent } from '../rules/rules.component';
-
-import { Country, State, City } from 'country-state-city';
-// import { ICountry, IState, ICity } from 'country-state-city';
 
 @Component({
   selector: 'app-swag-form',
@@ -27,18 +26,14 @@ export class SwagFormComponent implements OnInit {
 
   // eslint-disable-next-line max-len
   public privacyPolicyHtml = `I understand that by submitting this form, I agree to Ionic's <a href="" onclick="openPrivacyPolicy(); event.stopPropagation();">privacy policy</a>. This includes receiving marketing communications from Ionic and the event sponsors. I understand that I can unsubscribe from receiving these marketing communications at any time.`;
+  public countries: ICountry[];
 
   constructor(
     public hubspotService: HubspotService,
     private formBuilder: FormBuilder,
     private modalController: ModalController
   ) {
-    // Latest version - v3.0.0 with Tree Shaking to reduce bundle size
-
-    console.log(Country.getAllCountries());
-    console.log(State.getAllStates());
-
-    // Import Interfaces`
+    this.countries = Country.getAllCountries();
 
     this.form = this.formBuilder.group({
       firstname: new FormControl('', Validators.compose([Validators.required])),
@@ -119,11 +114,12 @@ export class SwagFormComponent implements OnInit {
 
   private setupForm() {
     this.f.country.valueChanges.subscribe((val) => {
-      if (val === 'United States') {
-        this.f.state.setValidators([Validators.required]);
-      } else {
-        this.f.state.clearValidators();
-      }
+      this.f.state.setValue('');
+      // if (val === 'United States') {
+      this.f.state.setValidators([Validators.required]);
+      // } else {
+      // this.f.state.clearValidators();
+      // }
       this.f.state.updateValueAndValidity();
     });
   }
