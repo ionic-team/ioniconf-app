@@ -20,16 +20,17 @@ ion-content {
   }
 }
 
-// #close-button {
-//   position: fixed;
-//   top: max(var(--ion-safe-area-top), 16px);
-//   right: 8px;
-// }
+#close-button {
+  position: fixed;
+  top: max(var(--ion-safe-area-top), 16px);
+  right: 8px;
+}
 
 .social-btns {
   display: flex;
   flex-wrap: wrap;
   column-gap: 12px;
+  margin: 0 0 12px 0;
 
   .connect-button {
     width: 72px;

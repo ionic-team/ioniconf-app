@@ -1,26 +1,18 @@
-<div>
-  <ion-buttons *ngIf="showClose" id="close-button">
-    <ion-button color="dark" (click)="modalController.dismiss()">
-      <ion-icon name="close-circle" size="large"></ion-icon>
-    </ion-button>
-  </ion-buttons>
-
-  <ion-card
-    *ngIf="speaker$ | async as speaker"
-    [ngClass]="{
-      'card-button': button
-    }"
-    [button]="button"
-    [style.backgroundImage]="'url(' + speaker.photoUrl + ')'"
-    (click)="presentModal()"
-  >
-    <ion-card-header>
-      <ion-card-title>
-        {{ speaker.fullName }}
-      </ion-card-title>
-      <ion-card-subtitle>
-        {{ speaker.role }}, {{ speaker.company.name }}
-      </ion-card-subtitle>
-    </ion-card-header>
-  </ion-card>
-</div>
+<ion-card
+  *ngIf="speaker$ | async as speaker"
+  [ngClass]="{
+    'card-button': button
+  }"
+  [button]="button"
+  [style.backgroundImage]="'url(' + speaker.photoUrl + ')'"
+  (click)="presentModal()"
+>
+  <ion-card-header>
+    <ion-card-title>
+      {{ speaker.fullName }}
+    </ion-card-title>
+    <ion-card-subtitle>
+      {{ speaker.role }}, {{ speaker.company.name }}
+    </ion-card-subtitle>
+  </ion-card-header>
+</ion-card>

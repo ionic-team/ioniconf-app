@@ -14,18 +14,15 @@ export class SpeakerCardComponent implements OnInit {
   @Input() public id: number;
   @Input() public button = false;
 
-  public showClose = true;
   public speaker$: Observable<Speaker>;
 
   constructor(
-    public modalController: ModalController,
-    private platform: Platform,
     private speakersFacade: SpeakersFacade,
+    private modalController: ModalController,
     @Optional() private routerOutlet: IonRouterOutlet
   ) {}
 
   ngOnInit() {
-    this.showClose = !this.button && !this.platform.platforms().includes('ios');
     this.speaker$ = this.speakersFacade.getSpeakerById(this.id);
   }
 

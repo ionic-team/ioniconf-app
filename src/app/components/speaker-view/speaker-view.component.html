@@ -1,5 +1,11 @@
 <ion-content>
   <ng-container *ngIf="speaker$ | async as speaker; else loading">
+    <ion-buttons *ngIf="showClose" id="close-button">
+      <ion-button color="dark" (click)="modalController.dismiss()">
+        <ion-icon name="close-circle" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
     <app-speaker-card [id]="id"></app-speaker-card>
 
     <div class="details">
