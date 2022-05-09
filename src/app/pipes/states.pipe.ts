@@ -15,7 +15,6 @@ export class StatesPipe implements PipeTransform {
   transform(country: string): IState[] {
     const selectedCountry = this.countries.find((c) => c.name === country);
     const states: IState[] = State.getStatesOfCountry(selectedCountry.isoCode);
-    console.log(states);
     return states;
   }
 }

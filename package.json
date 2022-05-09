@@ -1,6 +1,6 @@
 {
   "name": "ioniconf",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Ionic",
   "homepage": "https://ionic.io/ioniconf",
   "description": "Conference app for ioniconf 2022",
@@ -8,7 +8,7 @@
     "resources": "cordova-res ios --skip-config --copy && cordova-res android --skip-config --copy",
     "prestart": "node ./scripts/index.js",
     "prebuild": "ENVIRONMENT='production' node ./scripts/index.js",
-    "build": "ng build",
+    "build": "ionic build --configuration production",
     "build:dev": "ionic build",
     "prebuild:dev": "node ./scripts/index.js",
     "appflow:build": "ENVIRONMENT='production' node ./scripts/index.js && npx cap-config run appflow.yml -y && ng build --configuration production",
