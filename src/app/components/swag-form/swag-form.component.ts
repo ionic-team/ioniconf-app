@@ -12,6 +12,9 @@ import { HubspotFormData } from 'src/app/store/store.interfaces';
 import { CoreConstants } from 'src/app/util/core.constants';
 import { RulesComponent } from '../rules/rules.component';
 
+import { Country, State, City } from 'country-state-city';
+// import { ICountry, IState, ICity } from 'country-state-city';
+
 @Component({
   selector: 'app-swag-form',
   templateUrl: './swag-form.component.html',
@@ -30,6 +33,13 @@ export class SwagFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private modalController: ModalController
   ) {
+    // Latest version - v3.0.0 with Tree Shaking to reduce bundle size
+
+    console.log(Country.getAllCountries());
+    console.log(State.getAllStates());
+
+    // Import Interfaces`
+
     this.form = this.formBuilder.group({
       firstname: new FormControl('', Validators.compose([Validators.required])),
       lastname: new FormControl('', Validators.compose([Validators.required])),

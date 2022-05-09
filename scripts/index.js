@@ -19,3 +19,26 @@ const envConfigFile = `
   };
 `;
 writeFile("src/environments/environment.ts", envConfigFile);
+
+const disableLiveUpdates = `cordova: {
+      preferences: {
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        DisableDeploy: 'true',
+      },
+    }`;
+
+const capConfigFile = `
+  import { CapacitorConfig } from '@capacitor/cli';
+
+  const config: CapacitorConfig = {
+    appId: 'io.ionic.ioniconf',
+    appName: 'ioniconf',
+    webDir: 'www',
+    bundledWebRuntime: false,
+    ${!isProd ? `${disableLiveUpdates}` : ""}
+  };
+
+  export default config;
+`;
+
+writeFile("capacitor.config.ts", capConfigFile);

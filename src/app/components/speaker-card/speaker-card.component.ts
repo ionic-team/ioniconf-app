@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Component, Input, OnInit, Optional } from '@angular/core';
+import { IonRouterOutlet, ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { SpeakersFacade } from 'src/app/facades/speakers.facade';
 import { Speaker } from 'src/app/store/store.interfaces';
@@ -19,9 +19,9 @@ export class SpeakerCardComponent implements OnInit {
 
   constructor(
     private speakersFacade: SpeakersFacade,
-    private modalController: ModalController
-  ) // private routerOutlet: IonRouterOutlet
-  {}
+    private modalController: ModalController,
+    @Optional() private routerOutlet: IonRouterOutlet
+  ) {}
 
   ngOnInit() {
     this.speaker$ = this.speakersFacade.getSpeakerById(this.id);
@@ -34,10 +34,8 @@ export class SpeakerCardComponent implements OnInit {
 
     const modal = await this.modalController.create({
       component: SpeakerViewComponent,
-      // swipeToClose: true,
-      // presentingElement: this.routerOutlet
-      //   ? await this.modalController.getTop()
-      //   : this.routerOutlet.nativeEl,
+      swipeToClose: true,
+      presentingElement: this.routerOutlet.nativeEl,
       componentProps: {
         id: this.id,
       },
