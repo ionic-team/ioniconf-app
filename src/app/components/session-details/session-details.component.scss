@@ -27,7 +27,7 @@
     font-size: 16px;
     font-weight: 500;
     margin: 0;
-    color: var(--ion-color-carbon-dark);
+    color: var(--ion-color-session-speaker-text);
   }
 }
 
@@ -42,7 +42,7 @@ ion-list.list-inset {
 
 .description-list ion-item ion-text {
   padding: 0;
-  color: #222d3a;
+  color: var(--ion-color-session-speaker-text);
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
@@ -58,7 +58,7 @@ ion-list.list-inset {
       letter-spacing: -0.01em;
     }
     ion-note {
-      color: #434f5e;
+      color: var(--ion-color-session-speaker-text);
       font-weight: 400;
       font-size: 14px;
       line-height: 14px;
@@ -69,7 +69,7 @@ ion-list.list-inset {
 
 .watch-list {
   ion-item {
-    color: var(--ion-color-step-650);
+    color: var(--ion-color-session-speaker-text);
     font-weight: 400;
     font-size: 16px;
     letter-spacing: -0.01em;

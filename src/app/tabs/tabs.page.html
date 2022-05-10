@@ -2,7 +2,7 @@
   <ion-tab-bar slot="bottom">
     <ion-tab-button *ngFor="let btn of buttons" [tab]="btn.value">
       <ion-icon
-        [src]="'assets/icon/' + (selectedTab === btn.value ? btn.icon : btn.icon + '-outline') + '.svg'"
+        [src]="'assets/icon/' + (selectedTab === btn.value ? (isDark ? btn.icon + '-dark': btn.icon) : btn.icon + '-outline') + '.svg'"
       ></ion-icon>
       <!-- <ion-label>{{btn.title}}</ion-label> -->
     </ion-tab-button>

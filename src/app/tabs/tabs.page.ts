@@ -18,6 +18,7 @@ export class TabsPage implements OnInit {
     // { title: 'Sponsors', value: 'sponsors', icon: 'star' },
     { title: 'Swag', value: 'swag', icon: 'shirt' },
   ];
+  public isDark = false;
 
   constructor(
     private pushService: PushNotificationService,
@@ -27,6 +28,20 @@ export class TabsPage implements OnInit {
 
   ngOnInit(): void {
     this.initPushNotes();
+
+    if (
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
+      this.isDark = true;
+    }
+
+    window
+      .matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', (event) => {
+        this.isDark = event.matches;
+        console.log(this.isDark);
+      });
   }
 
   public onTabsWillChange(evt: any) {

@@ -12,7 +12,7 @@ ion-content {
   }
 
   ion-text {
-    color: var(--ion-color-carbon);
+    color: var(--ion-color-session-speaker-text);
     font-size: 18px;
     font-weight: 400;
     line-height: 24px;
@@ -35,7 +35,7 @@ ion-content {
   .connect-button {
     width: 72px;
     height: 56px;
-    --background: #f1edff;
+    --background: var(--ion-color-connect-btn);
     --box-shadow: none;
 
     ion-icon {
