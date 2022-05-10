@@ -13,6 +13,7 @@ import { Speaker } from 'src/app/store/store.interfaces';
 export class SpeakerViewComponent implements OnInit {
   @Input() public id: number;
 
+  public isDark = false;
   public showClose = true;
   public speaker$: Observable<Speaker>;
 
@@ -25,6 +26,20 @@ export class SpeakerViewComponent implements OnInit {
   ngOnInit() {
     this.showClose = !this.platform.platforms().includes('ios');
     this.speaker$ = this.speakersFacade.getSpeakerById(this.id);
+
+    if (
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
+      this.isDark = true;
+    }
+
+    window
+      .matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', (event) => {
+        this.isDark = event.matches;
+        console.log(this.isDark);
+      });
   }
 
   async openLink(url: string) {

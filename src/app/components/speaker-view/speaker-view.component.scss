@@ -2,6 +2,16 @@ ion-content {
   --padding-bottom: var(--ion-safe-area-bottom);
 }
 
+.swipe {
+  position: absolute;
+  left: 50%;
+  z-index: 1;
+  width: 64px;
+  height: 4px;
+  padding-top: 8px;
+  transform: translate(-50%, 0);
+}
+
 .details {
   margin: 20px;
   margin: 0 20px;

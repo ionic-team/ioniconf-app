@@ -1,19 +1,26 @@
 ion-card {
   margin: 20px;
+  padding: 20px;
+  border-radius: 16px;
 
   ion-col {
     padding: 0;
+  }
+
+  ion-button {
+    box-shadow: 0px 0px 1px rgba(1, 5, 14, 0.08),
+      0px 4px 8px rgba(1, 5, 14, 0.06);
   }
 
   .swag {
     display: flex;
     justify-content: center;
     margin: 0;
+    z-index: 1;
   }
 
   .welcome {
     ion-card-header {
-      margin: 20px 20px 24px 20px;
       padding: 0;
 
       ion-card-title {
@@ -24,7 +31,7 @@ ion-card {
       }
 
       ion-card-subtitle {
-        margin: 0 0 6px 0;
+        margin: 0 0 24px 0;
         text-transform: none;
         font-weight: 400;
         font-size: 16px;
@@ -33,11 +40,5 @@ ion-card {
         color: var(--ion-color-session-speaker-text);
       }
     }
-  }
-
-  .enter-btn {
-    margin: 0 20px 20px 20px;
-    box-shadow: 0px 0px 1px rgba(1, 5, 14, 0.08),
-      0px 4px 8px rgba(1, 5, 14, 0.06);
   }
 }

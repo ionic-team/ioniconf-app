@@ -1,5 +1,11 @@
 <ion-content>
   <ng-container *ngIf="speaker$ | async as speaker; else loading">
+    <ion-icon
+      *ngIf="!showClose"
+      class="swipe"
+      src="assets/swipe-handle.svg"
+    ></ion-icon>
+
     <ion-buttons *ngIf="showClose" id="close-button">
       <ion-button color="dark" (click)="modalController.dismiss()">
         <ion-icon name="close-circle" size="large"></ion-icon>
@@ -21,7 +27,9 @@
           (click)="openLink(speaker.linkedin)"
           *ngIf="speaker.linkedin"
         >
-          <ion-icon src="assets/icon/linkedin.svg"></ion-icon>
+          <ion-icon
+            [src]="'assets/icon/linkedin' + (isDark ? '-dark' : '') + '.svg'"
+          ></ion-icon>
         </ion-button>
 
         <ion-button
@@ -30,7 +38,9 @@
           (click)="openLink(speaker.github)"
           *ngIf="speaker.github"
         >
-          <ion-icon src="assets/icon/github.svg"></ion-icon>
+          <ion-icon
+            [src]="'assets/icon/github' + (isDark ? '-dark' : '') + '.svg'"
+          ></ion-icon>
         </ion-button>
 
         <ion-button
@@ -39,7 +49,9 @@
           (click)="openLink(speaker.twitter)"
           *ngIf="speaker.twitter"
         >
-          <ion-icon src="assets/icon/twitter.svg"></ion-icon>
+          <ion-icon
+            [src]="'assets/icon/twitter' + (isDark ? '-dark' : '') + '.svg'"
+          ></ion-icon>
         </ion-button>
       </div>
     </div>

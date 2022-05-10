@@ -24,17 +24,17 @@ export class TabsPage implements OnInit {
     private pushService: PushNotificationService,
     private storageService: StorageService,
     private modalController: ModalController
-  ) {}
-
-  ngOnInit(): void {
-    this.initPushNotes();
-
+  ) {
     if (
       window.matchMedia &&
       window.matchMedia('(prefers-color-scheme: dark)').matches
     ) {
       this.isDark = true;
     }
+  }
+
+  ngOnInit(): void {
+    this.initPushNotes();
 
     window
       .matchMedia('(prefers-color-scheme: dark)')

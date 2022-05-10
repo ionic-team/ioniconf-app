@@ -1,3 +1,17 @@
+ion-content {
+  --background: var(--ion-color-page-bkg);
+}
+
+.swipe {
+  position: absolute;
+  left: 50%;
+  z-index: 1;
+  width: 64px;
+  height: 4px;
+  padding-top: 8px;
+  transform: translate(-50%, 0);
+}
+
 #close-button {
   position: fixed;
   top: max(var(--ion-safe-area-top), 16px);

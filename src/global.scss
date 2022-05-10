@@ -65,13 +65,6 @@ ion-content.page-content ion-toolbar {
 //   border-width: 0;
 // }
 
-ion-list.list-inset.ios {
-  background: #34333a !important;
-  ion-item {
-    --background: transparent !important;
-  }
-}
-
 // .connect-button.md {
 //   --box-shadow: none;
 //   --border-radius: 16px 24px;
@@ -97,5 +90,23 @@ ion-list.list-inset.ios {
 @media (max-width: 767px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  ion-content.page-content {
+    --background: #000 url("assets/GRID.svg");
+  }
+
+  ion-list.list-inset.ios {
+    background: #34333a !important;
+    ion-item {
+      --background: transparent !important;
+    }
+  }
+
+  ion-card.glow-card {
+    --background: rgba(158, 154, 183, 0.2);
+    backdrop-filter: blur(40px);
   }
 }

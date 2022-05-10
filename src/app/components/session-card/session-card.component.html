@@ -1,4 +1,5 @@
 <ion-card
+  class="glow-card"
   *ngIf="session$ | async as session"
   (click)="openAgendaItemModal(session.id)"
 >

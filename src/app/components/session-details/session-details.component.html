@@ -1,5 +1,11 @@
-<ion-content class="page-content" [fullscreen]="true">
+<ion-content [fullscreen]="true">
   <ng-container *ngIf="session$ | async as session; else loading">
+    <ion-icon
+      *ngIf="!showClose"
+      class="swipe"
+      src="assets/swipe-handle.svg"
+    ></ion-icon>
+
     <ion-buttons *ngIf="showClose" id="close-button">
       <ion-button color="dark" (click)="modalController.dismiss()">
         <ion-icon name="close-circle" size="large"></ion-icon>
