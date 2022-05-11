@@ -5,6 +5,7 @@ import {
   ToastController,
 } from '@ionic/angular';
 import { SwagFormComponent } from 'src/app/components/swag-form/swag-form.component';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-swag',
@@ -15,6 +16,7 @@ export class SwagPage implements OnInit {
   constructor(
     public modalController: ModalController,
     public toastController: ToastController,
+    public themeService: ThemeService,
     private routerOutlet: IonRouterOutlet
   ) {}
 

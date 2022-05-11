@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="modal-content">
   <ng-container *ngIf="session$ | async as session; else loading">
     <ion-icon
       *ngIf="!showClose"
@@ -50,7 +50,7 @@
 
     <ion-list-header class="eas-header-large">Watch</ion-list-header>
     <ion-list inset="true" class="watch-list">
-      <ion-item lines="inset" class="watch-live" (click)="triggerBrowser()">
+      <ion-item class="watch-live" (click)="triggerBrowser()">
         <ion-label> Watch live at {{ CoreConstants.eventUrl }} </ion-label>
       </ion-item>
       <ion-item detail="true" lines="none" (click)="setReminder(session)">

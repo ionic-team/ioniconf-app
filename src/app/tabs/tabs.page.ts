@@ -4,6 +4,7 @@ import { ModalController } from '@ionic/angular';
 import { PermissionsComponent } from '../components/permissions/permissions.component';
 import { PushNotificationService } from '../services/push-notification.service';
 import { StorageService } from '../services/storage.service';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-tabs',
@@ -18,30 +19,16 @@ export class TabsPage implements OnInit {
     // { title: 'Sponsors', value: 'sponsors', icon: 'star' },
     { title: 'Swag', value: 'swag', icon: 'shirt' },
   ];
-  public isDark = false;
 
   constructor(
+    public themeService: ThemeService,
     private pushService: PushNotificationService,
     private storageService: StorageService,
     private modalController: ModalController
-  ) {
-    if (
-      window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
-    ) {
-      this.isDark = true;
-    }
-  }
+  ) {}
 
   ngOnInit(): void {
     this.initPushNotes();
-
-    window
-      .matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', (event) => {
-        this.isDark = event.matches;
-        console.log(this.isDark);
-      });
   }
 
   public onTabsWillChange(evt: any) {

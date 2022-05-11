@@ -3,11 +3,8 @@ ion-card {
   padding: 20px;
   border-radius: 16px;
 
-  ion-col {
-    padding: 0;
-  }
-
   ion-button {
+    font-weight: 700;
     box-shadow: 0px 0px 1px rgba(1, 5, 14, 0.08),
       0px 4px 8px rgba(1, 5, 14, 0.06);
   }
@@ -16,10 +13,12 @@ ion-card {
     display: flex;
     justify-content: center;
     margin: 0;
-    z-index: 1;
+    padding: 8px;
   }
 
   .welcome {
+    padding: 0;
+
     ion-card-header {
       padding: 0;
 

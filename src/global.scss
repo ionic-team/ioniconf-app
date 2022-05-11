@@ -54,6 +54,16 @@ ion-content.page-content ion-toolbar {
   --background: var(--ion-color-page-bkg);
 }
 
+ion-content.modal-content.ios,
+ion-content.modal-content ion-toolbar {
+  --background: var(--ion-background-color);
+}
+
+ion-content.modal-content.md,
+ion-content.modal-content ion-toolbar {
+  --background: var(--ion-color-page-bkg);
+}
+
 .permissions-modal {
   --height: 260px;
 }
@@ -95,7 +105,15 @@ ion-content.page-content ion-toolbar {
 
 @media (prefers-color-scheme: dark) {
   ion-content.page-content {
-    --background: #000 url("assets/GRID.svg");
+    --background: #000 url("assets/grid.svg");
+    background-size: 100% 100%;
+  }
+
+  ion-header.ios {
+    --background: transparent !important;
+    ion-toolbar {
+      --background: transparent !important;
+    }
   }
 
   ion-list.list-inset.ios {
@@ -107,6 +125,6 @@ ion-content.page-content ion-toolbar {
 
   ion-card.glow-card {
     --background: rgba(158, 154, 183, 0.2);
-    backdrop-filter: blur(40px);
+    backdrop-filter: blur(20px);
   }
 }

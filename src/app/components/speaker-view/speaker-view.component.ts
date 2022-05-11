@@ -3,6 +3,7 @@ import { Browser } from '@capacitor/browser';
 import { ModalController, Platform } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { SpeakersFacade } from 'src/app/facades/speakers.facade';
+import { ThemeService } from 'src/app/services/theme.service';
 import { Speaker } from 'src/app/store/store.interfaces';
 
 @Component({
@@ -13,33 +14,19 @@ import { Speaker } from 'src/app/store/store.interfaces';
 export class SpeakerViewComponent implements OnInit {
   @Input() public id: number;
 
-  public isDark = false;
   public showClose = true;
   public speaker$: Observable<Speaker>;
 
   constructor(
     public modalController: ModalController,
-    private platform: Platform,
-    public speakersFacade: SpeakersFacade
+    public speakersFacade: SpeakersFacade,
+    public themeService: ThemeService,
+    private platform: Platform
   ) {}
 
   ngOnInit() {
     this.showClose = !this.platform.platforms().includes('ios');
     this.speaker$ = this.speakersFacade.getSpeakerById(this.id);
-
-    if (
-      window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
-    ) {
-      this.isDark = true;
-    }
-
-    window
-      .matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', (event) => {
-        this.isDark = event.matches;
-        console.log(this.isDark);
-      });
   }
 
   async openLink(url: string) {

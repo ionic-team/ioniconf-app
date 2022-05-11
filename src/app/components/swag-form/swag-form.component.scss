@@ -8,6 +8,10 @@ ion-list-header {
   color: #7d8894;
 }
 
+ion-list-header.ios {
+  padding: 0 0 8px 0;
+}
+
 ion-list.list-inset {
   margin: 0 20px 32px 20px;
 }
@@ -40,6 +44,7 @@ ion-text {
 .submit-btn {
   margin: 0 20px;
   --box-shadow: none;
+  font-weight: 700;
 
   // &.button-disabled {
   //   --background: #dee3ea;

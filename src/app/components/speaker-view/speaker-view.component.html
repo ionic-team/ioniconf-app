@@ -28,7 +28,11 @@
           *ngIf="speaker.linkedin"
         >
           <ion-icon
-            [src]="'assets/icon/linkedin' + (isDark ? '-dark' : '') + '.svg'"
+            [src]="
+              'assets/icon/linkedin' +
+              (themeService.isDark ? '-dark' : '') +
+              '.svg'
+            "
           ></ion-icon>
         </ion-button>
 
@@ -39,7 +43,11 @@
           *ngIf="speaker.github"
         >
           <ion-icon
-            [src]="'assets/icon/github' + (isDark ? '-dark' : '') + '.svg'"
+            [src]="
+              'assets/icon/github' +
+              (themeService.isDark ? '-dark' : '') +
+              '.svg'
+            "
           ></ion-icon>
         </ion-button>
 
@@ -50,7 +58,11 @@
           *ngIf="speaker.twitter"
         >
           <ion-icon
-            [src]="'assets/icon/twitter' + (isDark ? '-dark' : '') + '.svg'"
+            [src]="
+              'assets/icon/twitter' +
+              (themeService.isDark ? '-dark' : '') +
+              '.svg'
+            "
           ></ion-icon>
         </ion-button>
       </div>
