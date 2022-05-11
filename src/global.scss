@@ -56,7 +56,7 @@ ion-content.page-content ion-toolbar {
 
 ion-content.modal-content.ios,
 ion-content.modal-content ion-toolbar {
-  --background: var(--ion-background-color);
+  --background: var(--ion-color-page-bkg);
 }
 
 ion-content.modal-content.md,
@@ -109,10 +109,17 @@ ion-content.modal-content ion-toolbar {
     background-size: 100% 100%;
   }
 
+  ion-content.modal-content.ios,
+  ion-content.modal-content ion-toolbar {
+    --background: var(--ion-background-color);
+  }
+
   ion-header.ios {
-    --background: transparent !important;
-    ion-toolbar {
+    &.header-collapse-condense {
       --background: transparent !important;
+      ion-toolbar {
+        --background: transparent !important;
+      }
     }
   }
 
