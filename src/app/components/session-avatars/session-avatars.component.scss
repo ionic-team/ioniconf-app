@@ -8,6 +8,12 @@
   --outline-color: var(--ion-background-color);
 }
 
+@media (prefers-color-scheme: dark) {
+  :host-context(ion-card) {
+    --outline-color: #22232d;
+  }
+}
+
 .container {
   // display: flex;
   // align-items: left;
