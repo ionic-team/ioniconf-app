@@ -4,6 +4,10 @@
   --outline-color: var(--ion-color-page-bkg);
 }
 
+:host-context(ion-card) {
+  --outline-color: var(--ion-background-color);
+}
+
 .container {
   // display: flex;
   // align-items: left;

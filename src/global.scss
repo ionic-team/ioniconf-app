@@ -54,36 +54,18 @@ ion-content.page-content ion-toolbar {
   --background: var(--ion-color-page-bkg);
 }
 
-ion-content.modal-content.ios,
+ion-content.modal-content,
 ion-content.modal-content ion-toolbar {
   --background: var(--ion-color-page-bkg);
 }
 
-ion-content.modal-content.md,
-ion-content.modal-content ion-toolbar {
-  --background: var(--ion-color-page-bkg);
+ion-content.speaker-content {
+  --background: var(--ion-background-color);
 }
 
 .permissions-modal {
   --height: 260px;
 }
-
-// ion-list.list-inset.md {
-//   padding-top: 0;
-//   padding-bottom: 0;
-//   border-radius: 12px;
-//   border-width: 0;
-// }
-
-// .connect-button.md {
-//   --box-shadow: none;
-//   --border-radius: 16px 24px;
-//   width: 56px !important;
-// }
-
-// .connect-button.md ion-icon {
-//   width: 24px !important;
-// }
 
 .grid {
   display: grid;
@@ -107,11 +89,6 @@ ion-content.modal-content ion-toolbar {
   ion-content.page-content {
     --background: #000 url("assets/GRID.svg");
     background-size: 100% 100%;
-  }
-
-  ion-content.modal-content.ios,
-  ion-content.modal-content ion-toolbar {
-    --background: var(--ion-background-color);
   }
 
   ion-header.ios {
