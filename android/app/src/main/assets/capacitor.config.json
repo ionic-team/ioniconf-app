@@ -1,19 +1,19 @@
 {
-	"appId": "io.ionic.ioniconf",
-	"appName": "ioniconf",
-	"webDir": "www",
-	"bundledWebRuntime": false,
-	"backgroundColor": "#000000",
-	"plugins": {
-		"SplashScreen": {
-			"launchShowDuration": 3000,
-			"launchAutoHide": false,
-			"backgroundColor": "#000000",
-			"androidSplashResourceName": "splash",
-			"androidScaleType": "CENTER_CROP",
-			"showSpinner": false,
-			"splashFullScreen": false,
-			"splashImmersive": false
-		}
-	}
+  "appId": "io.ionic.conferences.ioniconf",
+  "appName": "ioniconf",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "backgroundColor": "#000000",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 3000,
+      "launchAutoHide": false,
+      "backgroundColor": "#000000",
+      "androidSplashResourceName": "splash",
+      "androidScaleType": "CENTER_CROP",
+      "showSpinner": false,
+      "splashFullScreen": false,
+      "splashImmersive": false
+    }
+  }
 }
