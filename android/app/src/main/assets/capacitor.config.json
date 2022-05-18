@@ -1,5 +1,5 @@
 {
-  "appId": "io.ionic.conferences.ioniconf",
+  "appId": "io.ionic.ioniconf",
   "appName": "ioniconf",
   "webDir": "www",
   "bundledWebRuntime": false,

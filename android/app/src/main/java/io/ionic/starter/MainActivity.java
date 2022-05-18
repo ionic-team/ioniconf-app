@@ -1,4 +1,4 @@
-package io.ionic.conferences.ioniconf;
+package io.ionic.ioniconf;
 
 import com.getcapacitor.BridgeActivity;
 
