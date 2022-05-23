@@ -1,5 +1,5 @@
 # ioniconf
-Conference app for the 2022 [ioniconf](https://ionic.io/events/enterprise-app-summit-21), hosted by Ionic, that runs on iOS and Android. This free, one day virtual event brings together tech leaders from around the world. Learn, engage, and connect with the experts using Ionic products and services to drive innovation within their companies.
+Conference app for the 2022 [ioniconf](https://ionic.io/ioniconf), hosted by Ionic, that runs on iOS and Android. This free, one day virtual event brings together tech leaders from around the world. Learn, engage, and connect with the experts using Ionic products and services to drive innovation within their companies.
 
 Use this app to view the agenda, speaker info, and enter to win free Ionic and ioniconf swag.
 
