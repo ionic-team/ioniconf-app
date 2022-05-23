@@ -49,6 +49,11 @@
   letter-spacing: -0.01em;
 }
 
+.list-ios.list-inset ion-item {
+  --border-width: 0px;
+  --inner-border-width: 0 0 0.55px 0;
+}
+
 ion-content.page-content,
 ion-content.page-content ion-toolbar {
   --background: var(--ion-color-page-bkg);

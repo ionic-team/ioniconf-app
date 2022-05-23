@@ -37,7 +37,6 @@ export class SessionDetailsComponent implements OnInit {
     this.session$ = this.agendaFacade.getSession(this.sessionId);
 
     this.session$.subscribe((session) => {
-      console.log(session);
       this.description = prismicH.asHTML(session.description);
       this.photoUrls = session.speakers.map((speaker) => speaker.photoUrl);
     });

@@ -21,6 +21,10 @@
   .avatars {
     display: flex;
     margin: 0 0 18px 0;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
 
     app-session-avatars {
       padding-top: 32px;
