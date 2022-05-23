@@ -26,7 +26,9 @@ export class SessionCardComponent implements OnInit {
     this.session$ = this.agendaFacade.getSession(this.id);
 
     this.session$.subscribe((session) => {
-      this.photoUrls = session.speakers.map((speaker) => speaker.photoUrl);
+      this.photoUrls = session.speakers
+        .sort((a, b) => a.id - b.id)
+        .map((speaker) => speaker.photoUrl);
     });
   }
 
