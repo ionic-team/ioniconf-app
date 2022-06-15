@@ -26,6 +26,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.eventFacade.loadEvent();
+    this.eventFacade.loadEvent();   
   }
 }
