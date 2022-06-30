@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Storage } from '@capacitor/storage';
+import { Preferences } from '@capacitor/preferences';
 
 const PUSH_REQUESTED = 'push_notes_requested';
 
@@ -8,14 +8,14 @@ const PUSH_REQUESTED = 'push_notes_requested';
 })
 export class StorageService {
   public async setPushNotesRequested(requested: boolean) {
-    await Storage.set({
+    await Preferences.set({
       key: PUSH_REQUESTED,
       value: requested.toString(),
     });
   }
 
   public async getPushNotesRequested() {
-    const { value } = await Storage.get({ key: PUSH_REQUESTED });
+    const { value } = await Preferences.get({ key: PUSH_REQUESTED });
     return value;
   }
 }
